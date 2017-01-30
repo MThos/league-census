@@ -1,0 +1,1 @@
+ErrorDocument 404 localhost:8080/lol-census/notfound.php
