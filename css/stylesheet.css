@@ -283,7 +283,7 @@ table {
 }
 #spanLore > b {
     color: #fbc02d;
-    font-size: 18px;
+    font-size: 20px;
 }
 #spanAllyTips > h3 {
     color: #009933;
@@ -298,6 +298,9 @@ table {
     border: 4px outset #424242;
     padding: 30px 15px 30px 15px;
     margin: 0 0 20px 0;
+}
+.divSpell:hover {
+    background-color: #000;
 }
 .SpellImage > img {
     border: 4px ridge #1c1c1c;
