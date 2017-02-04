@@ -1,4 +1,5 @@
-# [LOLCENSUS] (http://www.lolcensus.com) 
+# LOLCENSUS 
+http://www.lolcensus.com 
 
 ### Description:
 * LOLCENSUS (League of Legends Census) is an **AJAX and PHP web application** for retrieval of summoner and champion information by pulling data from [Riot Games API] (https://developer.riotgames.com/api/methods). The web application is a work in progress, constantly being improved and updated. Only client-side code is publicly hosted on Github currently and mainly consists of **Javascript, JQuery and uses Bootstrap**. The data is stored in **MySQL**.
