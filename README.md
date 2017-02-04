@@ -8,26 +8,21 @@
 
 ## Version:
 **Current Patch: 6.6** 
-
 * LOLCENSUS is updated the day after every **major patch** released for League of Legends.
 
 
 ## Creators & Authors:
 **Mykel Agathos**
-
 * E-mail: mykel.thos[at]gmail[dot]com
 
 
 ## Copyright and Licensing:
 **License**
-
 * LOLCENSUS is released under the [GNU General Public License] (https://github.com/MThos/lolcensus/blob/master/LICENSE.md).
 
 **Copyright**
-
 * Copyright © 2017 - LOLCENSUS.COM
 
 ## Legal:
 **Riot Games Use Of Intellectual Property**
-
 * LOLCENSUS isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
