@@ -4,7 +4,7 @@
 
 ## Description:
 
-LOLCENSUS (League of Legends Census) is an **AJAX and PHP web application** for retrieval of summoner and champion information by pulling data from [Riot Games API] (https://developer.riotgames.com/api/methods). The web application is a work in progress, constantly being improved and updated. Only client-side code is publicly hosted on Github currently and mainly consists of **Javascript, JQuery and uses Bootstrap**. The data is stored in **MySQL**.
+LOLCENSUS (League of Legends Census) is an **AJAX and PHP web application** for retrieval of summoner and champion information by pulling data from [Riot Games API](https://developer.riotgames.com/api/methods). The web application is a work in progress, constantly being improved and updated. Only client-side code is publicly hosted on Github currently and mainly consists of **Javascript, JQuery and uses Bootstrap**. The data is stored in **MySQL**.
 
 ## Version:
 **Current Patch: 6.6** 
@@ -21,7 +21,7 @@ E-mail: mykel.thos[at]gmail[dot]com
 ## Copyright and Licensing:
 **License**
 
-LOLCENSUS is released under the [GNU General Public License] (https://github.com/MThos/lolcensus/blob/master/LICENSE.md).
+LOLCENSUS is released under the [GNU General Public License](https://github.com/MThos/lolcensus/blob/master/LICENSE.md).
 
 **Copyright**
 
