@@ -1,4 +1,4 @@
-# LOLCENSUS 
+# LOL-CENSUS 
 
 [lolcensus.com](http://www.lolcensus.com) 
 
