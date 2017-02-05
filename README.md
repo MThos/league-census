@@ -1,6 +1,6 @@
 # LOL-CENSUS 
 
-[lolcensus.com](http://www.lolcensus.com) 
+[LOLCENSUS.COM](http://www.lolcensus.com) 
 
 ## Description:
 
