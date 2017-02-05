@@ -1,4 +1,4 @@
 title: LOL-CENSUS
 description: League of Legends Statistics Site
-show downloads: true
+show_downloads: true
 theme: jekyll-theme-architect
