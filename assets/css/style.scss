@@ -8,8 +8,12 @@ body {
   background-color: #1c1c1c;
   background-image: none;
 }
-
 aside {
   background-color: #1c1c1c;
   background-image: none;
+}
+.button {
+  cursor: pointer;
+  -webkit-filter: brightness(120%);
+  filter: brightness(120%);
 }
