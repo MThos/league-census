@@ -9,10 +9,11 @@ body {
   background-image: none;
 }
 aside#sidebar {
-  background-image: none;
+  background-image: none;]
+  width: 225px;
 }
-h1 {
-  color: #fff;
+header {
+  border-bottom: 1px solid #000;
 }
 .button:hover {
   cursor: pointer;
