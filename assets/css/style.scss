@@ -11,6 +11,7 @@ body {
 aside#sidebar {
   background-image: none;
   width: 215px;
+  padding-left: 40px;
 }
 header {
   border-bottom: 1px solid #000;
@@ -19,7 +20,7 @@ header {
   width: 715px;  
 }
 .inner {
-  width: 900px;
+  width: 930px;
 }
 .button:hover {
   cursor: pointer;
