@@ -15,6 +15,9 @@ aside#sidebar {
 header {
   border-bottom: 1px solid #000;
 }
+#main-content {
+  width: 715px;  
+}
 .button:hover {
   cursor: pointer;
   -webkit-filter: brightness(120%);
