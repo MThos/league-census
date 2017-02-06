@@ -22,6 +22,9 @@ aside#sidebar {
 header {
   border-bottom: 1px solid #000;
 }
+header h1:hover {
+  color: #fbc02d;
+}
 #main-content {
   /*width: 700px;*/  
 }
