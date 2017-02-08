@@ -278,8 +278,8 @@ function loadChampionData(elem) {
     divPanel.setAttribute("id", "lore");
     br = document.createElement("br");
     divPanel.appendChild(br);
-    var spanLore = document.createElement("span");
-    spanLore.setAttribute("id", "spanLore");
+    var spanLore = document.createElement("div");
+    spanLore.setAttribute("id", "divLore");
     divPanel.appendChild(spanLore);
     divTabContent.appendChild(divPanel);
     // panel: tips and tricks
@@ -287,14 +287,14 @@ function loadChampionData(elem) {
     divPanel.setAttribute("role", "tabpanel");
     divPanel.setAttribute("class", "tab-pane fade");
     divPanel.setAttribute("id", "tipstricks");
-    var spanAllyTips = document.createElement("span");
-    spanAllyTips.setAttribute("id", "spanAllyTips");
-    divPanel.appendChild(spanAllyTips);
+    var divAllyTips = document.createElement("div");
+    divAllyTips.setAttribute("id", "divAllyTips");
+    divPanel.appendChild(divAllyTips);
     br = document.createElement("br");
     divPanel.appendChild(br);
-    var spanEnemyTips = document.createElement("span");
-    spanEnemyTips.setAttribute("id", "spanEnemyTips");
-    divPanel.appendChild(spanEnemyTips);
+    var divEnemyTips = document.createElement("div");
+    divEnemyTips.setAttribute("id", "divEnemyTips");
+    divPanel.appendChild(divEnemyTips);
     divTabContent.appendChild(divPanel);
 
     $.ajax({
@@ -305,15 +305,16 @@ function loadChampionData(elem) {
             'name': championName
         },
         success: function (json) {
+            // console.log(json);
             // title
             $('#championTitleHeader').html("'" + json.Title + "'");
             // lore
-            $('#spanLore').html("<b>THE STORY OF " + championName.toUpperCase().fontsize(7) + "...</b> <br><br>" +
+            $('#divLore').html("<b>THE STORY OF " + championName.toUpperCase().fontsize(7) + "...</b> <br><br>" +
                 json.Lore + "<br><br>");
             // tips and tricks
-            $('#spanAllyTips').html("<h3>ALLY TIPS:</h3> <ul class=\"square-bullets\"><li>" +
+            $('#divAllyTips').html("<h3>ALLY TIPS:</h3> <ul class=\"square-bullets\"><li>" +
                 replaceWithBreak(json.AllyTips) + "</ul>");
-            $('#spanEnemyTips').html("<h3>ENEMY TIPS:</h3> <ul class=\"square-bullets\"><li>" +
+            $('#divEnemyTips').html("<h3>ENEMY TIPS:</h3> <ul class=\"square-bullets\"><li>" +
                 replaceWithBreak(json.EnemyTips) + "</ul>");
             // champion info
             // calculate attack speed
@@ -324,6 +325,8 @@ function loadChampionData(elem) {
                 "<b>TITLE:</b> " + json.Title +
                 "<br>" +
                 "<b>ID:</b> " + json.Id +
+                "<br>" +
+                "<b>RELEASE DATE:</b> " + json[4].ReleaseDate +
                 "<br><br>" +
                 "<b>RESOURCE:</b> " + json.ParType +
                 "<br>" +
@@ -480,7 +483,7 @@ function loadChampionData(elem) {
                     "<b>RANGE:</b> " + json[i].RangeBurn +
                     "<br>" +
                     "<b>MAX AMMO:</b> " + maxAmmo +
-                    "<br><br>" +
+                    "<br>" +
                     "</div>");
             }
         },

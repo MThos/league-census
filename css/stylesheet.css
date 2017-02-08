@@ -281,22 +281,46 @@ table {
     border: 2px ridge #424242;
     vertical-align: middle;
 }
-#spanLore > b {
+#divLore {
+    border: 4px outset #424242;
+    padding: 20px 15px 25px 15px;
+    margin: 20px 0 0 0;
+}
+#divLore:hover {
+    background-color: #000;
+}
+#divLore > b {
     color: #fbc02d;
     font-size: 20px;
 }
-#spanAllyTips > h3 {
+#divAllyTips {
+    border: 4px outset #424242;
+    padding: 20px 15px 25px 15px;
+    margin: 20px 0 0 0;
+}
+#divEnemyTips {
+    border: 4px outset #424242;
+    padding: 20px 15px 25px 15px;
+    margin: 0 0 20px 0;
+}
+#divAllyTips:hover {
+    background-color: #000;
+}
+#divEnemyTips:hover {
+    background-color: #000;
+}
+#divAllyTips > h3 {
     color: #009933;
 }
-#spanEnemyTips > h3 {
-    color: #f7464a;
+#divEnemyTips > h3 {
+    color: #cc2900;
 }
 .square-bullets {
     list-style-type: square;
 }
 .divSpell {
     border: 4px outset #424242;
-    padding: 30px 15px 30px 15px;
+    padding: 30px 15px 35px 15px;
     margin: 0 0 20px 0;
 }
 .divSpell:hover {
