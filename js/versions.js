@@ -25,7 +25,7 @@
  */
 
 // data dragon
-var dataDragon = "6.21.1";
+var dataDragon = "7.2.1";
 
 // riot api
 var riotChampion = "1.2";

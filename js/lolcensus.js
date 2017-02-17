@@ -46,6 +46,7 @@ $( function() {
         "Brand",
         "Braum",
         "Caitlyn",
+        "Camille",
         "Cassiopeia",
         "Cho'Gath",
         "Corki",

@@ -169,7 +169,7 @@
 <!-- header -->
 <header class="jumbotron" id="jumbotron-header">
     <div class="text-center">
-        <img id="header-img" src="images/league-banner8.png">
+        <img id="header-img" src="images/league-banner6.png">
     </div>
 </header>
 
