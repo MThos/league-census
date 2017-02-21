@@ -127,7 +127,7 @@
 </div>
 
 <!-- nav bar -->
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="../index.php">
@@ -202,7 +202,7 @@
 </main>
 
 <!-- footer -->
-<footer class="container-fluid text-center" id="footer">
+<footer class="footer navbar-fixed-bottom text-center" id="footer">
     Copyright &copy; <?php echo date("Y") ?> | LOLCENSUS.COM | All Rights Reserved |
     <a href="terms.php">Terms of Service</a> |
     <a href="privacy.php">Privacy Policy</a> |

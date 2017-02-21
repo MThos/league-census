@@ -1,6 +1,7 @@
-body {
+html, body {
     font-family: 'Inconsolata', monospace;
     color: #c7c7c7;
+    height: 100%;
     line-height: 1.2;
     font-size: 16px;
     background-color: #1c1c1c;
@@ -59,7 +60,7 @@ input:-webkit-autofill {
     margin: 0 0 0 20px;
 }
 .navbar-nav {
-    margin: 22px 0 0 40px;
+    margin: 22px 0 0 150px;
 }
 .navbar-nav > li > a {
     padding-top: 15px;
@@ -99,11 +100,10 @@ input:-webkit-autofill {
 }
 /* main */
 #main-content {
+    background-color: #222;
     border-top: 4px ridge #424242;
-    border-bottom: 4px ridge #424242;
     padding: 20px 60px 20px 60px;
     text-align: center;
-    background-color: #222;
 }
 #main-content > p {
     padding: 20px 60px 20px 60px;
@@ -112,6 +112,13 @@ input:-webkit-autofill {
 }
 #main-content > h2 {
     padding-bottom: 15px;
+}
+/* footer */
+#footer {
+    background-color: #1c1c1c;
+    border-top: 4px ridge #424242;
+    font-size: 14px;
+    padding: 20px 0 20px 0;
 }
 #left-align-text {
     text-align: left;
@@ -161,12 +168,6 @@ input:-webkit-autofill {
 }
 #col4-grid > a > img:hover {
     border-color: #fff;
-}
-/* footer */
-#footer {
-    background-color: #1c1c1c;
-    font-size: 14px;
-    padding: 20px 0 20px 0;
 }
 #update-confirm {
     color: #00802b;
