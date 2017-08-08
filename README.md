@@ -7,7 +7,7 @@
 LOLCENSUS (League of Legends Census) is an **AJAX and PHP web application** for retrieval of summoner and champion information by pulling data from [Riot Games API](https://developer.riotgames.com/api/methods). The web application is a work in progress, constantly being improved and updated. Only client-side code is publicly hosted on Github currently and it mainly consists of **Javascript, JQuery, and PHP**. The data is stored in **MySQL**.
 
 ## Version:
-**Current Patch: 6.6** 
+**Current Patch: 7.15** 
 
 LOLCENSUS is updated the day after every **major patch** released for League of Legends.
 
