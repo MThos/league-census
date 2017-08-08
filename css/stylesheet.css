@@ -1,10 +1,11 @@
 html, body {
+    background-color: #1c1c1c;
     font-family: 'Inconsolata', monospace;
     color: #c7c7c7;
     height: 100%;
     line-height: 1.2;
     font-size: 16px;
-    background-color: #1c1c1c;
+    padding-top: 50px;
 }
 /* links */
 a:link, a:focus, a:active, a:visited {
@@ -23,6 +24,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     margin: 10px 0 10px 0;
 }
+/* paragraphs */
 p {
     margin: 0;
 }
@@ -60,7 +62,7 @@ input:-webkit-autofill {
     margin: 0 0 0 20px;
 }
 .navbar-nav {
-    margin: 22px 0 0 150px;
+    margin: 22px 0 0 60px;
 }
 .navbar-nav > li > a {
     padding-top: 15px;
@@ -84,7 +86,7 @@ input:-webkit-autofill {
     color: #fbc02d;
     background-color: transparent;
 }
-/* jumbotron */
+/* jumbotron and header */
 .jumbotron {
     background-color: #1c1c1c;
 }
@@ -102,7 +104,7 @@ input:-webkit-autofill {
 #main-content {
     background-color: #222;
     border-top: 4px ridge #424242;
-    padding: 20px 60px 20px 60px;
+    padding: 20px 60px 160px 60px;
     text-align: center;
 }
 #main-content > p {
@@ -169,6 +171,7 @@ input:-webkit-autofill {
 #col4-grid > a > img:hover {
     border-color: #fff;
 }
+/* admin db update */
 #update-confirm {
     color: #00802b;
 }
@@ -180,7 +183,7 @@ input:-webkit-autofill {
     -webkit-filter: brightness(120%);
     filter: brightness(120%);
 }
-#update-button {
+.update-btn {
     display: block;
     margin: 0 auto;
     border: 4px solid #fbc02d;
@@ -188,7 +191,7 @@ input:-webkit-autofill {
     width: 20%;
     font-size: 24px;
 }
-#update-button:hover {
+.update-btn:hover {
     border: 4px solid #fff;
 }
 /* search box */
@@ -215,11 +218,8 @@ input:-webkit-autofill {
     color: #1c1c1c;
     font-weight: bold;
 }
-#searchedName:focus {
-    border: 4px ridge #fbc02d;
-}
-#searchedName:hover {
-    border: 4px ridge #fbc02d;
+#searchedName:focus, #searchedName:hover {
+    border: 4px ridge #fab505;
 }
 #search-img:hover {
     -webkit-filter: brightness(130%);
@@ -241,9 +241,20 @@ table {
     font-size: 18px;
 }
 #champion-img:hover {
+    border: 4px ridge #fab505; /* fbc02d gold color was too bright on border */
     cursor: pointer;
-    -webkit-filter: brightness(140%);
-    filter: brightness(140%);
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%);
+}
+.hvr-pulse:hover, .hvr-pulse:focus, .hvr-pulse:active {
+    -webkit-animation-name: hvr-pulse;
+    animation-name: hvr-pulse;
+    -webkit-animation-duration: 1.2s;
+    animation-duration: 1.2s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 #champion-splash {
     border: 4px ridge #1c1c1c;
@@ -287,8 +298,28 @@ table {
 .tab-pane {
     margin: 0 40px 0 40px;
 }
-#spanInfo > b {
+/* info */
+.divInfo {
+    display: flex;
+}
+.info-columns > b {
     color: #fbc02d;
+}
+.divInfo > div {
+    flex: 1;
+    -webkit-flex: 1; /* Safari */
+    -ms-flex: 1; /* IE */
+}
+#info-col-1 {
+    padding: 0 40px 0 0;
+    border-right: 4px ridge #424242;
+}
+#info-col-2 {
+    padding: 0 40px 0 40px;
+    border-right: 4px ridge #424242;
+}
+#info-col-3 {
+    padding: 0 40px 0 40px;
 }
 .spanAttributeBar {
     display: block;
@@ -298,6 +329,7 @@ table {
     border: 2px ridge #424242;
     vertical-align: middle;
 }
+/* lore */
 #divLore {
     border: 4px outset #424242;
     padding: 20px 15px 15px 15px;
@@ -310,6 +342,12 @@ table {
     color: #fbc02d;
     font-size: 20px;
 }
+#lore-quote {
+    color: #fbc02d;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* tips and tricks */
 #divAllyTips {
     border: 4px outset #424242;
     padding: 20px 15px 25px 15px;
@@ -335,6 +373,7 @@ table {
 .square-bullets {
     list-style-type: square;
 }
+/* spells */
 .divSpell {
     border: 4px outset #424242;
     padding: 30px 15px 35px 15px;
@@ -371,15 +410,6 @@ table {
 #SpellInfoRightSide > b {
     color: #fbc02d;
 }
-/* clearfix hack - stop overlap from parent div */
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-}
 /* back to top button */
 a.back-to-top {
     display: none;
@@ -389,8 +419,21 @@ a.back-to-top {
     position: fixed;
     z-index: 999;
     right: 25px;
-    bottom: 80px;
-    background: url("../images/top-arrow-resize.png");
+    bottom: 180px;
+    background: url("../images/top-arrow2-resize.png");
+}
+a.back-to-top:hover {
+    -webkit-filter: brightness(110%);
+    filter: brightness(110%);
+}
+/* clearfix hack - stop overlap from parent div */
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 }
 /* modal */
 .modal {

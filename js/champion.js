@@ -46,11 +46,11 @@ function loadChampionList() {
         type: "GET",
         dataType: "json",
         data: {
-            'url': "global.api.pvp.net/api/lol/static-data/na/v" + riotStaticData +
-            "/champion?dataById=true&champData=info&"
+            'url': "na1.api.riotgames.com" + STATIC_DATA_API +
+            "/champions?locale=en_US&dataById=true&"
         },
         success: function (json) {
-            const MAX_CHAMP_ID = 500; // maximum possible champ id
+            const MAX_CHAMP_ID = 700; // maximum possible champ id
             var champNameArr = [];
             var champNameEditArr = [];
             // check for all id's under MAX_CHAMP_ID
@@ -95,11 +95,11 @@ function loadChampionList() {
                             img.setAttribute("class", "hvr-pulse");
                             // Wukong is a special case - name is MonkeyKing so alters alphabetical sort.
                             if (champNameArr[n] === "Wukong") {
-                                img.setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/" + dataDragon +
+                                img.setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/" + DATA_DRAGON +
                                     "/img/champion/" + "MonkeyKing" + ".png");
                             }
                             else {
-                                img.setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/" + dataDragon +
+                                img.setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/" + DATA_DRAGON +
                                     "/img/champion/" + champNameEditArr[n] + ".png");
                             }
                             img.setAttribute("width", "100");
@@ -252,9 +252,9 @@ function loadChampionData(elem) {
     divPanel.setAttribute("id", "information");
     var br = document.createElement("br");
     divPanel.appendChild(br);
-    var spanInfo = document.createElement("span");
-    spanInfo.setAttribute("id", "spanInfo");
-    divPanel.appendChild(spanInfo);
+    var divInfo = document.createElement("div");
+    divInfo.setAttribute("class", "divInfo");
+    divPanel.appendChild(divInfo);
     divTabContent.appendChild(divPanel);
     // panel: spells
     divPanel = document.createElement("div");
@@ -263,6 +263,11 @@ function loadChampionData(elem) {
     divPanel.setAttribute("id", "spells");
     br = document.createElement("br");
     divPanel.appendChild(br);
+    // 1 passive per champion
+    var divPassive = document.createElement("div");
+    divPassive.setAttribute("class", "divSpell clearfix");
+    divPassive.setAttribute("id", "divPassive");
+    divPanel.appendChild(divPassive);
     // 4 spells per champion, create 4 spans for images
     for (var i = 0; i < 4; i++) {
         var divSpell = document.createElement("div");
@@ -305,12 +310,12 @@ function loadChampionData(elem) {
             'name': championName
         },
         success: function (json) {
-            // console.log(json);
+            console.log(json);
             // title
             $('#championTitleHeader').html("'" + json.Title + "'");
-            // lore
+            // lore and quote
             $('#divLore').html("<b>THE STORY OF " + championName.toUpperCase().fontsize(7) + "...</b> <br><br>" +
-                json.Lore + "<br><br>");
+                json[4].Lore + "<br><br><br>" + "<span id=\"lore-quote\">" + json[4].Quote + "</span>" + "<br><br>");
             // tips and tricks
             $('#divAllyTips').html("<h3>ALLY TIPS:</h3> <ul class=\"square-bullets\"><li>" +
                 replaceWithBreak(json.AllyTips) + "</ul>");
@@ -319,14 +324,17 @@ function loadChampionData(elem) {
             // champion info
             // calculate attack speed
             var attackSpeed = 0.625 / (1 + parseFloat(json.AttackSpeedOffSet));
-            $('#spanInfo').html(
+            $('.divInfo').html(
+                "<div class=\"info-columns\" id=\"info-col-1\">" +
                 "<b>NAME:</b> " + json.ChampionName +
                 "<br>" +
                 "<b>TITLE:</b> " + json.Title +
                 "<br>" +
-                "<b>ID:</b> " + json.Id +
+                "<b>FACTION:</b> " + json[4].Faction +
                 "<br>" +
                 "<b>RELEASE DATE:</b> " + json[4].ReleaseDate +
+                "<br>" +
+                "<b>ID:</b> " + json.Id +
                 "<br><br>" +
                 "<b>RESOURCE:</b> " + json.ParType +
                 "<br>" +
@@ -376,7 +384,33 @@ function loadChampionData(elem) {
                 "<b>RANGE:</b> " + parseFloat(json.AttackRange).toFixed(0) +
                 "<br>" +
                 "<b>MOVEMENT:</b> " + parseFloat(json.MoveSpeed).toFixed(0) +
-                "<br>"
+                "<br><br>" +
+                "</div>" +
+                "<div class=\"info-columns\" id=\"info-col-2\">" +
+                "<b>WIN RATE:</b> " +
+                "<br><br>" +
+                "<b>PLAY RATE:</b> " +
+                "<br><br>" +
+                "<b>BAN RATE:</b> " +
+                "<br><br>" +
+                "<b>GOLD EARNED:</b> " +
+                "<br><br>" +
+                "<b>KILLS:</b> " +
+                "<br><br>" +
+                "<b>DEATHS:</b> " +
+                "<br><br>" +
+                "<b>ASSISTS:</b> " +
+                "<br><br>" +
+                "<b>DAMAGE DEALT:</b> " +
+                "<br><br>" +
+                "<b>DAMAGE TAKEN:</b> " +
+                "<br><br>" +
+                "<b>MINIONS KILLED:</b> " +
+                "<br><br>" +
+                "</div>" +
+                "<div class=\"info-columns\" id=\"info-col-3\">" +
+                "GRAPHS" +
+                "</div>"
             );
             // attack/defense/magic/difficulty bar title
             var attack = json.Attack;
@@ -394,10 +428,27 @@ function loadChampionData(elem) {
             var difficultyDec = difficulty * 0.1;
             // draw canvas attack/defense/magic/difficulty bars
             drawCanvas(attackDec, defenseDec, magicDec, difficultyDec);
+            // display passive info
+            var spellName = json.PassiveName;
+            var upperCaseSpellName = spellName.toUpperCase();
+            $('#divPassive').html(
+                "<div class=\"SpellImage\">" +
+                "<img src=\"http://ddragon.leagueoflegends.com/cdn/" + DATA_DRAGON +
+                "/img/passive/" + json.PassiveImageFull + "\" >" +
+                "</div>" +
+                "<div class=\"SpellInfo\">" +
+                "<b id=\"spellName\">" + upperCaseSpellName + "</b>" +
+                "<div id=\"SpellInfoRightSide\">" +
+                "<b>PASSIVE ABILITY</b>" +
+                "</div>" +
+                "<br><br>" +
+                "<b>DESCRIPTION:</b> " + json.PassiveDescription +
+                "<br>" +
+                "</div>");
             // spell images and spell info
             for (var i = 0; i < 4; i++) {
-                var name = json[i].Name;
-                var upperCaseName = name.toUpperCase();
+                spellName = json[i].Name;
+                upperCaseSpellName = spellName.toUpperCase();
                 // ammo fix
                 if (json[i].MaxAmmo === "-1") {
                     var maxAmmo = "N/A";
@@ -409,9 +460,6 @@ function loadChampionData(elem) {
                 var costType = null;
                 if (json[i].CostType === "EssenceofShadow") {
                     costType = "Essence of Shadow";
-                }
-                else if (json[i].CostType === "NoCost") {
-                    costType = "No Cost";
                 }
                 else if (json[i].CostType === "pofcurrentHealth") {
                     costType = "% of Current Health";
@@ -461,11 +509,11 @@ function loadChampionData(elem) {
                 // display spell info
                 $('#divSpell' + i).html(
                     "<div class=\"SpellImage\">" +
-                    "<img src=\"http://ddragon.leagueoflegends.com/cdn/" + dataDragon +
+                    "<img src=\"http://ddragon.leagueoflegends.com/cdn/" + DATA_DRAGON +
                     "/img/spell/" + json[i].ImageFull + "\" >" +
                     "</div>" +
                     "<div class=\"SpellInfo\">" +
-                    "<b id=\"spellName\">" + upperCaseName + "</b>" +
+                    "<b id=\"spellName\">" + upperCaseSpellName + "</b>" +
                     "<div id=\"SpellInfoRightSide\">" +
                     "<b>HOTKEY:</b> " + json[i].HotKey +
                     "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
@@ -582,10 +630,6 @@ function fixChampionNames(champName) {
     }
     else if (champName === "Dr. Mundo") {
         champNameEdit = "DrMundo";
-        return champNameEdit;
-    }
-    else if (champName === "Fiddlesticks") {
-        champNameEdit = "FiddleSticks";
         return champNameEdit;
     }
     else if (champName === "Jarvan IV") {

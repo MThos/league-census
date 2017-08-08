@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>LOL Census</title>
@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Syncopate">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="css/hover.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
 
@@ -107,7 +107,7 @@
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
-                    <p style="padding-top:25px;padding-bottom:20px;">By signing up, you agree to our <br />
+                    <p style="padding-top:25px;padding-bottom:20px;">By signing up, you agree to our <br>
                         <a href="terms.php">terms of service</a> and
                         <a href="privacy.php">privacy policy</a>
                     </p>

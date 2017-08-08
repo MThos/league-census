@@ -25,21 +25,15 @@
  */
 
 // data dragon
-var dataDragon = "7.2.1";
+var DATA_DRAGON = "7.14.1";
 
 // riot api
-var riotChampion = "1.2";
-var riotCurrentGame = "1.0";
-var riotFeaturedGames = "1.0";
-var riotGame = "1.3";
-var riotLeague = "2.5";
-var riotStaticData = "1.2";
-var riotStatus = "1.0";
-var riotMatch = "2.2";
-var riotMatchList = "2.2";
-var riotStats = "1.3";
-var riotSummoner = "1.4";
-var riotTeam = "2.4";
+var CHAMPION_API = "/lol/platform/v3";
+var LEAGUE_API = "/lol/league/v3";
+var STATIC_DATA_API = "/lol/static-data/v3";
+var STATUS_API = "/lol/status/v3";
+var MATCH_API = "/lol/match/v3";
+var SUMMONER_API = "/lol/summoner/v3";
 
 /*
  * Copyright © 2017 - LOLCENSUS.COM

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>LOL Census</title>
@@ -106,7 +106,7 @@
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         <div class="help-block with-errors"></div>
                     </div>
-                    <p style="padding-top:25px;padding-bottom:20px;">By signing up, you agree to our <br />
+                    <p style="padding-top:25px;padding-bottom:20px;">By signing up, you agree to our <br>
                         <a href="terms.php">terms of service</a> and
                         <a href="privacy.php">privacy policy</a>
                     </p>
@@ -167,13 +167,13 @@
     $combine = $ip . " tried to load " . $serverName . $reqURI;
     $httpAgent = getenv("HTTP_USER_AGENT");
     $today = date("D M j Y g:i:s A T");
-    $message = "<p><span id=\"font-size-30\">Error 404 - Page Not Found</span><br />
-                <img src=\"images/404_x.png\" height=\"128\" width=\"128\" alt=\"Not Found\"><br />
+    $message = "<p><span id=\"font-size-30\">Error 404 - Page Not Found</span><br>
+                <img src=\"images/404_x.png\" height=\"128\" width=\"128\" alt=\"Not Found\"><br>
                 <span id=\"font-size-24\">We must have lost the page you were looking for.. Sorry!</span>
-                <br /><br /><br />
-                <strong>Technical Mumbo Jumbo:</strong><br /><br />
-                $today <br />
-                $combine <br />
+                <br><br><br>
+                <strong>Technical Mumbo Jumbo:</strong><br><br>
+                $today <br>
+                $combine <br>
                 User Agent = $httpAgent</p>";
     echo $message;
     ?>
