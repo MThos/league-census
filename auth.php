@@ -41,13 +41,21 @@ if ($con === false) {
 $apiQuery = mysqli_query($con, "SELECT api_key FROM secure_api");
 $keyFetch = mysqli_fetch_assoc($apiQuery);
 $key = $keyFetch["api_key"];
-// ajax call - json - pass in api key from server to client
+// use api key from server and pass json to client
 header("Content-Type: application/json");
 $url = $_GET["url"];
-$json = file_get_contents("https://".$url."api_key=".$key);
+$hash = md5($url);
+$cacheFile = "cache/$hash";
+// if cache file older than 3600s, refresh it
+if (file_exists($cacheFile) && filemtime($cacheFile) > time() - 3600) {
+    $json = file_get_contents($cacheFile);
+}
+else {
+    $json = file_get_contents("https://".$url."api_key=".$key);
+    file_put_contents($cacheFile, $json);
+}
 $obj = json_decode($json);
 echo json_encode($obj, JSON_PRETTY_PRINT);
-
 
 
 /*

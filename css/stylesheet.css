@@ -174,6 +174,7 @@ input:-webkit-autofill {
 /* admin db update */
 #update-confirm {
     color: #00802b;
+    font-size: 26px;
 }
 #update-icon {
     display: block;
@@ -186,13 +187,14 @@ input:-webkit-autofill {
 .update-btn {
     display: block;
     margin: 0 auto;
-    border: 4px solid #fbc02d;
+    border: 3px solid #fbc02d;
+    background-color: #1c1c1c;
     padding: 5px;
     width: 20%;
     font-size: 24px;
 }
 .update-btn:hover {
-    border: 4px solid #fff;
+    border: 3px solid #fff;
 }
 /* search box */
 #search-box {
@@ -311,15 +313,15 @@ table {
     -ms-flex: 1; /* IE */
 }
 #info-col-1 {
-    padding: 0 40px 0 0;
+    padding: 0 20px 0 0;
     border-right: 4px ridge #424242;
 }
 #info-col-2 {
-    padding: 0 40px 0 40px;
+    padding: 0 20px 0 20px;
     border-right: 4px ridge #424242;
 }
 #info-col-3 {
-    padding: 0 40px 0 40px;
+    padding: 0 20px 0 20px;
 }
 .spanAttributeBar {
     display: block;
@@ -327,6 +329,43 @@ table {
 }
 #attackBar, #defenseBar, #magicBar, #difficultyBar {
     border: 2px ridge #424242;
+    vertical-align: middle;
+}
+#damage-dealt {
+    border: 2px ridge #424242;
+    vertical-align: middle;
+}
+#damage-distribution {
+    text-align: center;
+    color: #fbc02d;
+}
+.damage-legend {
+    padding-left: 35px;
+}
+#phys-square {
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+    background: #992600;
+}
+#magic-square {
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+    background: #0052cc;
+}
+#true-square {
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+}
+.legend {
+    margin-left: 5px;
+    margin-right: 20px;
     vertical-align: middle;
 }
 /* lore */

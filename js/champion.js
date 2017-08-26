@@ -46,7 +46,7 @@ function loadChampionList() {
         type: "GET",
         dataType: "json",
         data: {
-            'url': "na1.api.riotgames.com" + STATIC_DATA_API +
+            'url': "na1.api.riotgames.com/" + STATIC_DATA_API +
             "/champions?locale=en_US&dataById=true&"
         },
         success: function (json) {
@@ -310,7 +310,11 @@ function loadChampionData(elem) {
             'name': championName
         },
         success: function (json) {
-            console.log(json);
+            // !!!!REMOVE!!!!
+            // !!!!REMOVE!!!!
+            console.log(json); // !!!!REMOVE!!!!
+            // !!!!REMOVE!!!!
+            // !!!!REMOVE!!!!
             // title
             $('#championTitleHeader').html("'" + json.Title + "'");
             // lore and quote
@@ -324,6 +328,35 @@ function loadChampionData(elem) {
             // champion info
             // calculate attack speed
             var attackSpeed = 0.625 / (1 + parseFloat(json.AttackSpeedOffSet));
+            // champion games calculations
+            var gamesPlayed = json[5].GamesPlayed;
+            var totalGamesPlayed = json.TotalGamesPlayed;
+            var winPercent = json[5].Wins / gamesPlayed * 100;
+            var pickRate = gamesPlayed / totalGamesPlayed * 100;
+            var banRate = json[5].Bans / totalGamesPlayed * 100;
+            var goldEarned = json[5].GoldEarned / gamesPlayed;
+            var kills = json[5].Kills / gamesPlayed;
+            var deaths = json[5].Deaths / gamesPlayed;
+            var assists = json[5].Assists / gamesPlayed;
+            var damageDealt = json[5].DamageDealt / gamesPlayed;
+            var damageToChampions = json[5].DamageToChampions / gamesPlayed;
+            var damageTaken = json[5].DamageTaken / gamesPlayed;
+            var magicDamage = json[5].MagicDamage / gamesPlayed;
+            var magicDamageToChampions = json[5].MagicDamageToChampions / gamesPlayed;
+            var magicDamageTaken = json[5].MagicDamageTaken / gamesPlayed;
+            var physicalDamage = json[5].PhysicalDamage / gamesPlayed;
+            var physicalDamageToChampions = json[5].PhysicalDamageToChampions / gamesPlayed;
+            var physicalDamageTaken = json[5].PhysicalDamageTaken / gamesPlayed;
+            var trueDamage = json[5].TrueDamage / gamesPlayed;
+            var trueDamageToChampions = json[5].TrueDamageToChampions / gamesPlayed;
+            var trueDamageTaken = json[5].TrueDamageTaken / gamesPlayed;
+            var healing = json[5].HealingTotal / gamesPlayed;
+            var wardsPlaced = json[5].WardsPlaced / gamesPlayed;
+            var wardsKilled = json[5].WardsKilled / gamesPlayed;
+            var firstBlood = json[5].FirstBlood / gamesPlayed * 100;
+            var firstTower = json[5].FirstTower / gamesPlayed * 100;
+            var avgLevel = json[5].HighestLevel / gamesPlayed;
+            var minionsKilled = json[5].MinionsKilled / gamesPlayed;
             $('.divInfo').html(
                 "<div class=\"info-columns\" id=\"info-col-1\">" +
                 "<b>NAME:</b> " + json.ChampionName +
@@ -340,46 +373,50 @@ function loadChampionData(elem) {
                 "<br>" +
                 "<b>ROLE:</b> " + json.Tags +
                 "<br><br>" +
-                "<span class=\"spanAttributeBar\" id=\"spanAttackBar\">" +
+                "<span class=\"spanAttributeBar\" id=\"spanAttackBar\" data-toggle=\"tooltip\" " +
+                             "data-placement=\"top\" >" +
                 "<img src=\"images/sword.png\" width=\"27\" height=\"27\" /> " +
                 "<canvas id=\"attackBar\" width=\"200\" height=\"23\" />" +
                 "</span>" +
-                "<span class=\"spanAttributeBar\" id=\"spanDefenseBar\">" +
+                "<span class=\"spanAttributeBar\" id=\"spanDefenseBar\" data-toggle=\"tooltip\" " +
+                             "data-placement=\"top\" >" +
                 "<img src=\"images/shield.png\" width=\"27\" height=\"27\" /> " +
                 "<canvas id=\"defenseBar\" width=\"200\" height=\"23\" />" +
                 "</span>" +
-                "<span class=\"spanAttributeBar\" id=\"spanMagicBar\">" +
+                "<span class=\"spanAttributeBar\" id=\"spanMagicBar\" data-toggle=\"tooltip\" " +
+                             "data-placement=\"top\" >" +
                 "<img src=\"images/flame.png\" width=\"27\" height=\"27\" /> " +
                 "<canvas id=\"magicBar\" width=\"200\" height=\"23\" />" +
                 "</span>" +
-                "<span class=\"spanAttributeBar\" id=\"spanDifficultyBar\">" +
+                "<span class=\"spanAttributeBar\" id=\"spanDifficultyBar\" data-toggle=\"tooltip\" " +
+                             "data-placement=\"top\" >" +
                 "<img src=\"images/stairs.png\" width=\"27\" height=\"27\" /> " +
                 "<canvas id=\"difficultyBar\" width=\"200\" height=\"23\" />" +
                 "</span>" +
                 "<br>" +
                 "<b>HEALTH:</b> " + parseFloat(json.Hp).toFixed(0) +
-                " (+" + parseFloat(json.HpPerLevel).toFixed(0) + " per level)" +
+                " (+" + parseFloat(json.HpPerLevel).toFixed(0) + "/LVL)" +
                 "<br>" +
                 "<b>HEALTH REGEN:</b> " + parseFloat(json.HpRegen).toFixed(1) +
-                " (+" + parseFloat(json.HpRegenPerLevel).toFixed(1) + " per level)" +
+                " (+" + parseFloat(json.HpRegenPerLevel).toFixed(1) + "/LVL)" +
                 "<br><br>" +
                 "<b>MANA:</b> " + parseFloat(json.Mp).toFixed(0) +
-                " (+" + parseFloat(json.MpPerLevel).toFixed(0) + " per level)" +
+                " (+" + parseFloat(json.MpPerLevel).toFixed(0) + "/LVL)" +
                 "<br>" +
                 "<b>MANA REGEN:</b> " + parseFloat(json.MpRegen).toFixed(1) +
-                " (+" + parseFloat(json.MpRegenPerLevel).toFixed(1) + " per level)" +
+                " (+" + parseFloat(json.MpRegenPerLevel).toFixed(1) + "/LVL)" +
                 "<br><br>" +
                 "<b>ATTACK DAMAGE:</b> " + parseFloat(json.AttackDamage).toFixed(1) +
-                " (+" + parseFloat(json.AttackDamagePerLevel).toFixed(1) + " per level)" +
+                " (+" + parseFloat(json.AttackDamagePerLevel).toFixed(1) + "/LVL)" +
                 "<br>" +
                 "<b>ATTACK SPEED:</b> " + attackSpeed.toFixed(2) + "/sec" +
-                " (+" + parseFloat(json.AttackSpeedPerLevel).toFixed(2) + "% per level)" +
+                " (+" + parseFloat(json.AttackSpeedPerLevel).toFixed(2) + "%/LVL)" +
                 "<br><br>" +
                 "<b>ARMOR:</b> " + parseFloat(json.Armor).toFixed(1) +
-                " (+" + parseFloat(json.ArmorPerLevel).toFixed(1) + " per level)" +
+                " (+" + parseFloat(json.ArmorPerLevel).toFixed(1) + "/LVL)" +
                 "<br>" +
                 "<b>MAGIC RESIST:</b> " + parseFloat(json.SpellBlock).toFixed(1) +
-                " (+" + parseFloat(json.SpellBlockPerLevel).toFixed(1) + " per level)" +
+                " (+" + parseFloat(json.SpellBlockPerLevel).toFixed(1) + "/LVL)" +
                 "<br><br>" +
                 "<b>RANGE:</b> " + parseFloat(json.AttackRange).toFixed(0) +
                 "<br>" +
@@ -387,31 +424,55 @@ function loadChampionData(elem) {
                 "<br><br>" +
                 "</div>" +
                 "<div class=\"info-columns\" id=\"info-col-2\">" +
-                "<b>WIN RATE:</b> " +
+                "<b>WIN RATE:</b> " + winPercent.toFixed(1) + "%" +
                 "<br><br>" +
-                "<b>PLAY RATE:</b> " +
+                "<b>PICK RATE:</b> " + pickRate.toFixed(1) + "%" +
                 "<br><br>" +
-                "<b>BAN RATE:</b> " +
+                "<b>BAN RATE:</b> " + banRate.toFixed(1) + "%" +
                 "<br><br>" +
-                "<b>GOLD EARNED:</b> " +
+                "<b>GOLD EARNED:</b> " + addCommas(goldEarned.toFixed(0)) +
                 "<br><br>" +
-                "<b>KILLS:</b> " +
+                "<b>KILLS:</b> " + kills.toFixed(1) +
                 "<br><br>" +
-                "<b>DEATHS:</b> " +
+                "<b>DEATHS:</b> " + deaths.toFixed(1) +
                 "<br><br>" +
-                "<b>ASSISTS:</b> " +
+                "<b>ASSISTS:</b> " + assists.toFixed(1) +
                 "<br><br>" +
-                "<b>DAMAGE DEALT:</b> " +
+                "<b>DAMAGE DEALT:</b> " + addCommas(damageDealt.toFixed(0)) +
                 "<br><br>" +
-                "<b>DAMAGE TAKEN:</b> " +
+                "<b>DAMAGE TO CHAMPIONS:</b> " + addCommas(damageToChampions.toFixed(0)) +
                 "<br><br>" +
-                "<b>MINIONS KILLED:</b> " +
+                "<b>DAMAGE TAKEN:</b> " + addCommas(damageTaken.toFixed(0)) +
+                "<br><br>" +
+                "<b>HEALING:</b> " + addCommas(healing.toFixed(0)) +
+                "<br><br>" +
+                "<b>WARDS PLACED:</b> " + wardsPlaced.toFixed(1) +
+                "<br><br>" +
+                "<b>WARDS KILLED:</b> " + wardsKilled.toFixed(1) +
+                "<br><br>" +
+                "<b>FIRST BLOOD:</b> " + firstBlood.toFixed(1) + "%" +
+                "<br><br>" +
+                "<b>FIRST TOWER:</b> " + firstTower.toFixed(1) + "%" +
+                "<br><br>" +
+                "<b>LEVEL AVG:</b> " + avgLevel.toFixed(1) +
+                "<br><br>" +
+                "<b>MINIONS KILLED:</b> " + minionsKilled.toFixed(0) +
                 "<br><br>" +
                 "</div>" +
                 "<div class=\"info-columns\" id=\"info-col-3\">" +
-                "GRAPHS" +
+                "<div id=\"damage-distribution\"><h4>DAMAGE DISTRIBUTION</h4></div>" +
+                "<canvas id=\"damage-dealt\" width=\"300\" height=\"33\" data-toggle=\"tooltip\" " +
+                            "data-placement=\"top\" data-html=\"true\" />" +
+                "<br><br>" +
+                "<div class=\"damage-legend\">" +
+                "<div id=\"phys-square\"></div><span class=\"legend\">Physical</span>" +
+                "<div id=\"magic-square\"></div><span class=\"legend\">Magic</span>" +
+                "<div id=\"true-square\"></div><span class=\"legend\">True</span>" +
+                "</div>" +
                 "</div>"
             );
+            // damage dealt bar
+            createDamageDealtBar(physicalDamageToChampions, magicDamageToChampions, trueDamageToChampions);
             // attack/defense/magic/difficulty bar title
             var attack = json.Attack;
             var defense = json.Defense;
@@ -534,6 +595,7 @@ function loadChampionData(elem) {
                     "<br>" +
                     "</div>");
             }
+            $('[data-toggle="tooltip"]').tooltip(); // activate bootstrap tooltips
         },
         error: function (jqXHR) {
             console.log("status:" + jqXHR.status);
@@ -572,7 +634,7 @@ function drawCanvas(attackDec, defenseDec, magicDec, difficultyDec) {
     grad.addColorStop(1, "#1c1c1c");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 200, 23);
-    ctx.strokeStyle = '#1c1c1c';
+    ctx.strokeStyle = "#1c1c1c";
     ctx.stroke();
     // defense
     canvas = document.getElementById("defenseBar");
@@ -584,7 +646,7 @@ function drawCanvas(attackDec, defenseDec, magicDec, difficultyDec) {
     grad.addColorStop(1, "#1c1c1c");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 200, 23);
-    ctx.strokeStyle = '#1c1c1c';
+    ctx.strokeStyle = "#1c1c1c";
     ctx.stroke();
     // magic
     canvas = document.getElementById("magicBar");
@@ -596,7 +658,7 @@ function drawCanvas(attackDec, defenseDec, magicDec, difficultyDec) {
     grad.addColorStop(1, "#1c1c1c");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 200, 23);
-    ctx.strokeStyle = '#1c1c1c';
+    ctx.strokeStyle = "#1c1c1c";
     ctx.stroke();
     // difficulty
     canvas = document.getElementById("difficultyBar");
@@ -608,8 +670,39 @@ function drawCanvas(attackDec, defenseDec, magicDec, difficultyDec) {
     grad.addColorStop(1, "#1c1c1c");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 200, 23);
-    ctx.strokeStyle = '#1c1c1c';
+    ctx.strokeStyle = "#1c1c1c";
     ctx.stroke();
+}
+
+/*
+ * @function:       createDamageDealtBar()
+ * @description:    create a bar on canvas "damage-dealt" for magic/physica/true damage values
+ * @param:          magicDamage, physicalDamage, trueDamage
+ * @returns:        none
+ */
+function createDamageDealtBar(physicalDamageToChampions, magicDamageToChampions, trueDamageToChampions) {
+    var totalDamage = physicalDamageToChampions + magicDamageToChampions + trueDamageToChampions;
+    var physicalPercent = physicalDamageToChampions / totalDamage;
+    var magicPercent = magicDamageToChampions / totalDamage;
+    var truePercent = trueDamageToChampions / totalDamage;
+    var canvas = document.getElementById("damage-dealt");
+    var ctx = canvas.getContext("2d");
+    var grad = ctx.createLinearGradient(0, 0, 300, 0);
+    grad.addColorStop(0, "#992600");
+    grad.addColorStop(physicalPercent, "#992600");
+    grad.addColorStop(physicalPercent, "#0052cc");
+    grad.addColorStop(magicPercent + physicalPercent, "#0052cc");
+    grad.addColorStop(magicPercent + physicalPercent, "#fff");
+    grad.addColorStop(truePercent + physicalPercent + magicPercent, "#fff");
+    grad.addColorStop(1, "#1c1c1c");
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 300, 33);
+    ctx.strokeStyle = "#1c1c1c";
+    ctx.stroke();
+    // tooltip hover
+    document.getElementById("damage-dealt").title = "<b>Physical:</b> " + (physicalPercent*100).toFixed(1) + "%" +
+                                                    "<br><b>Magical:</b> " + (magicPercent*100).toFixed(1) + "%" +
+                                                    "<br><b>True:</b> " + (truePercent*100).toFixed(1) + "%";
 }
 
 /*
@@ -722,6 +815,25 @@ function resetElements(divToReset) {
             }
         }
     }
+}
+
+/*
+ * @function:       addCommas()
+ * @description:    add comma's for thousands separator
+ * @param:          divToReset
+ * @returns:        none
+ */
+function addCommas(commaSplit)
+{
+    commaSplit += '';
+    x = commaSplit.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
 }
 
 

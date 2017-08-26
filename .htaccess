@@ -1,1 +1,2 @@
 ErrorDocument 404 localhost:8080/lol-census/notfound.php
+php_value max_execution_time 3000

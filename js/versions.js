@@ -28,12 +28,12 @@
 var DATA_DRAGON = "7.14.1";
 
 // riot api
-var CHAMPION_API = "/lol/platform/v3";
-var LEAGUE_API = "/lol/league/v3";
-var STATIC_DATA_API = "/lol/static-data/v3";
-var STATUS_API = "/lol/status/v3";
-var MATCH_API = "/lol/match/v3";
-var SUMMONER_API = "/lol/summoner/v3";
+var CHAMPION_API = "lol/platform/v3";
+var LEAGUE_API = "lol/league/v3";
+var STATIC_DATA_API = "lol/static-data/v3";
+var STATUS_API = "lol/status/v3";
+var MATCH_API = "lol/match/v3";
+var SUMMONER_API = "lol/summoner/v3";
 
 /*
  * Copyright © 2017 - LOLCENSUS.COM
