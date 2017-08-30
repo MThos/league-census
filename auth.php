@@ -23,7 +23,7 @@
  * You should have received a copy of the GNU General Public License
  * along with LOLCENSUS.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright ï¿½ 2017 - LOLCENSUS.COM
  */
 
 // disable error reporting to hide api key on error messages
@@ -51,6 +51,7 @@ if (file_exists($cacheFile) && filemtime($cacheFile) > time() - 3600) {
     $json = file_get_contents($cacheFile);
 }
 else {
+    unlink($cacheFile); // delete old cache
     $json = file_get_contents("https://".$url."api_key=".$key);
     file_put_contents($cacheFile, $json);
 }
@@ -59,7 +60,7 @@ echo json_encode($obj, JSON_PRETTY_PRINT);
 
 
 /*
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright ï¿½ 2017 - LOLCENSUS.COM
  */
 
 ?>
