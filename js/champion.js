@@ -24,7 +24,7 @@
  * You should have received a copy of the GNU General Public License
  * along with LOLCENSUS.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright ï¿½ 2017 - LOLCENSUS.COM
  */
 
 // global variables
@@ -838,5 +838,5 @@ function addCommas(commaSplit)
 
 
 /*
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright ï¿½ 2017 - LOLCENSUS.COM
  */
