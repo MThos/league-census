@@ -27,7 +27,7 @@
  * You should have received a copy of the GNU General Public License
  * along with LOLCENSUS.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright Â© 2017 - LOLCENSUS.COM
  */
 
 // global variables
@@ -564,5 +564,5 @@ function createWinsGraph(gameModeWinsArray, gameModeNameArray) {
 }
 
 /*
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright Â© 2017 - LOLCENSUS.COM
  */

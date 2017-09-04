@@ -23,7 +23,7 @@
  * You should have received a copy of the GNU General Public License
  * along with LOLCENSUS.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Copyright � 2017 - LOLCENSUS.COM
+ * Copyright © 2017 - LOLCENSUS.COM
  */
 
 // disable error reporting to hide api key on error messages
@@ -60,7 +60,7 @@ echo json_encode($obj, JSON_PRETTY_PRINT);
 
 
 /*
- * Copyright � 2017 - LOLCENSUS.COM
+ * Copyright © 2017 - LOLCENSUS.COM
  */
 
 ?>

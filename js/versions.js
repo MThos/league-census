@@ -21,7 +21,7 @@
  * You should have received a copy of the GNU General Public License
  * along with LOLCENSUS.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright Â© 2017 - LOLCENSUS.COM
  */
 
 // data dragon
@@ -36,5 +36,5 @@ var MATCH_API = "lol/match/v3";
 var SUMMONER_API = "lol/summoner/v3";
 
 /*
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright Â© 2017 - LOLCENSUS.COM
  */
