@@ -326,37 +326,34 @@ function loadChampionData(elem) {
             $('#divEnemyTips').html("<h3>ENEMY TIPS:</h3> <ul class=\"square-bullets\"><li>" +
                 replaceWithBreak(json.EnemyTips) + "</ul>");
             // champion info
-            // calculate attack speed
-            var attackSpeed = 0.625 / (1 + parseFloat(json.AttackSpeedOffSet));
+            var attackSpeed = 0.625 / (1 + parseFloat(json.AttackSpeedOffSet)); // attack speed calc from RiotAPI forum
             // champion games calculations
-            var gamesPlayed = json[5].GamesPlayed;
-            var totalGamesPlayed = json.TotalGamesPlayed;
-            var winPercent = json[5].Wins / gamesPlayed * 100;
-            var pickRate = gamesPlayed / totalGamesPlayed * 100;
-            var banRate = json[5].Bans / totalGamesPlayed * 100;
-            var goldEarned = json[5].GoldEarned / gamesPlayed;
-            var kills = json[5].Kills / gamesPlayed;
-            var deaths = json[5].Deaths / gamesPlayed;
-            var assists = json[5].Assists / gamesPlayed;
-            var damageDealt = json[5].DamageDealt / gamesPlayed;
-            var damageToChampions = json[5].DamageToChampions / gamesPlayed;
-            var damageTaken = json[5].DamageTaken / gamesPlayed;
-            var magicDamage = json[5].MagicDamage / gamesPlayed;
-            var magicDamageToChampions = json[5].MagicDamageToChampions / gamesPlayed;
-            var magicDamageTaken = json[5].MagicDamageTaken / gamesPlayed;
-            var physicalDamage = json[5].PhysicalDamage / gamesPlayed;
-            var physicalDamageToChampions = json[5].PhysicalDamageToChampions / gamesPlayed;
-            var physicalDamageTaken = json[5].PhysicalDamageTaken / gamesPlayed;
-            var trueDamage = json[5].TrueDamage / gamesPlayed;
-            var trueDamageToChampions = json[5].TrueDamageToChampions / gamesPlayed;
-            var trueDamageTaken = json[5].TrueDamageTaken / gamesPlayed;
-            var healing = json[5].HealingTotal / gamesPlayed;
-            var wardsPlaced = json[5].WardsPlaced / gamesPlayed;
-            var wardsKilled = json[5].WardsKilled / gamesPlayed;
-            var firstBlood = json[5].FirstBlood / gamesPlayed * 100;
-            var firstTower = json[5].FirstTower / gamesPlayed * 100;
-            var avgLevel = json[5].HighestLevel / gamesPlayed;
-            var minionsKilled = json[5].MinionsKilled / gamesPlayed;
+            var winPercent = parseFloat(json[5].WinPercent);
+            var pickRate = parseFloat(json[5].PickRate);
+            var banRate = parseFloat(json[5].BanRate);
+            var goldEarned = parseFloat(json[5].AvgGold);
+            var kills = parseFloat(json[5].AvgKills);
+            var deaths = parseFloat(json[5].AvgDeaths);
+            var assists = parseFloat(json[5].AvgAssists);
+            var damageDealt = parseFloat(json[5].AvgDamageDealt);
+            var damageToChampions = parseFloat(json[5].AvgDamageToChampions);
+            var damageTaken = parseFloat(json[5].AvgDamageTaken);
+            var magicDamage = parseFloat(json[5].AvgMagicDamage);
+            var magicDamageToChampions = parseFloat(json[5].AvgMagicDamageToChampions);
+            var magicDamageTaken = parseFloat(json[5].AvgMagicDamageTaken);
+            var physicalDamage = parseFloat(json[5].AvgPhysicalDamage);
+            var physicalDamageToChampions = parseFloat(json[5].AvgPhysicalDamageToChampions);
+            var physicalDamageTaken = parseFloat(json[5].AvgPhysicalDamageTaken);
+            var trueDamage = parseFloat(json[5].AvgTrueDamage);
+            var trueDamageToChampions = parseFloat(json[5].AvgTrueDamageToChampions);
+            var trueDamageTaken = parseFloat(json[5].AvgTrueDamageTaken);
+            var healing = parseFloat(json[5].AvgHealing);
+            var wardsPlaced = parseFloat(json[5].AvgWardsPlaced);
+            var wardsKilled = parseFloat(json[5].AvgWardsKilled);
+            var firstBlood = parseFloat(json[5].FirstBloodPercent);
+            var firstTower = parseFloat(json[5].FirstTowerPercent);
+            var avgLevel = parseFloat(json[5].AvgLevel);
+            var minionsKilled = parseFloat(json[5].AvgMinionsKilled);
             $('.divInfo').html(
                 "<div class=\"info-columns\" id=\"info-col-1\">" +
                 "<b>NAME:</b> " + json.ChampionName +
@@ -454,7 +451,7 @@ function loadChampionData(elem) {
                 "<br><br>" +
                 "<b>FIRST TOWER:</b> " + firstTower.toFixed(1) + "%" +
                 "<br><br>" +
-                "<b>LEVEL AVG:</b> " + avgLevel.toFixed(1) +
+                "<b>LEVEL AVERAGE:</b> " + avgLevel.toFixed(1) +
                 "<br><br>" +
                 "<b>MINIONS KILLED:</b> " + minionsKilled.toFixed(0) +
                 "<br><br>" +
@@ -510,9 +507,10 @@ function loadChampionData(elem) {
             for (var i = 0; i < 4; i++) {
                 spellName = json[i].Name;
                 upperCaseSpellName = spellName.toUpperCase();
+                var maxAmmo = "";
                 // ammo fix
                 if (json[i].MaxAmmo === "-1") {
-                    var maxAmmo = "N/A";
+                    maxAmmo = "N/A";
                 }
                 else {
                     maxAmmo = json[i].MaxAmmo;
