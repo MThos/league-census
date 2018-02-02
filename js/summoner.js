@@ -12,7 +12,7 @@
  * @date:           Sept 25, 2015
  * @revision:	    v1.0.0
  *
- * This file is part of LOLCENSUS.
+ * This file is part of LEAGUECENSUS
  *
  * LOLCENSUS is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  * You should have received a copy of the GNU General Public License
  * along with LOLCENSUS.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright © 2018 - LEAGUECENSUS.COM
  */
 
 // global variables
@@ -564,5 +564,5 @@ function createWinsGraph(gameModeWinsArray, gameModeNameArray) {
 }
 
 /*
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright © 2018 - LEAGUECENSUS.COM
  */

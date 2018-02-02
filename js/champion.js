@@ -1,6 +1,6 @@
 /*
  * @program:	    champion.js
- * @description:    Java API calls for LOLCENSUS.COM from League of Legends Official API
+ * @description:    Java API calls for LEAGUECENSUS.COM from League of Legends Official API
  *                  loadChampionList() - load list of champions in table from static API.
  *                  resetElements() - empty out elements.
  *                  fixChampionNames() - change champion names to naming used for Data Dragon.
@@ -9,7 +9,7 @@
  * @date:           Jan 04, 2016
  * @revision:	    v0.1.2
  *
- * This file is part of LOLCENSUS.
+ * This file is part of LEAGUECENSUS.
  *
  * LOLCENSUS is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
  * You should have received a copy of the GNU General Public License
  * along with LOLCENSUS.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright © 2018 - LEAGUECENSUS.COM
  */
 
 // global variables
@@ -421,43 +421,44 @@ function loadChampionData(elem) {
                 "<br><br>" +
                 "</div>" +
                 "<div class=\"info-columns\" id=\"info-col-2\">" +
-                "<b>WIN RATE:</b> " + winPercent.toFixed(1) + "%" +
+                "<b>WIN RATE</b><br> " + winPercent.toFixed(1) + "%" + "<br><span style=\"color:" + rankTextColor(json[6].WinRank) + "\"> (" + getOrdinal(json[6].WinRank) + ")</span>" +
                 "<br><br>" +
-                "<b>PICK RATE:</b> " + pickRate.toFixed(1) + "%" +
+                "<b>PICK RATE</b><br> " + pickRate.toFixed(1) + "%" + "<br><span style=\"color:" + rankTextColor(json[6].PickRank) + "\"> (" +  getOrdinal(json[6].PickRank) + ")</span>" +
                 "<br><br>" +
-                "<b>BAN RATE:</b> " + banRate.toFixed(1) + "%" +
+                "<b>BAN RATE</b><br> " + banRate.toFixed(1) + "%" + "<br><span style=\"color:" + rankTextColor(json[6].BanRank) + "\"> (" +  getOrdinal(parseFloat(json[6].BanRank)) + ")</span>" +
                 "<br><br>" +
-                "<b>GOLD EARNED:</b> " + addCommas(goldEarned.toFixed(0)) +
+                "<b>GOLD EARNED</b><br> " + addCommas(goldEarned.toFixed(0)) + "<br><span style=\"color:" + rankTextColor(json[6].GoldRank) + "\"> (" +  getOrdinal(json[6].GoldRank) + ")</span>" +
                 "<br><br>" +
-                "<b>KILLS:</b> " + kills.toFixed(1) +
+                "<b>KILLS</b><br> " + kills.toFixed(1) + "<br><span style=\"color:" + rankTextColor(json[6].KillsRank) + "\"> (" +  getOrdinal(json[6].KillsRank) + ")</span>" +
                 "<br><br>" +
-                "<b>DEATHS:</b> " + deaths.toFixed(1) +
+                "<b>DEATHS</b><br> " + deaths.toFixed(1) + "<br><span style=\"color:" + rankTextColor(json[6].DeathsRank) + "\"> (" +  getOrdinal(json[6].DeathsRank) + ")</span>" +
                 "<br><br>" +
-                "<b>ASSISTS:</b> " + assists.toFixed(1) +
+                "<b>ASSISTS</b><br> " + assists.toFixed(1) + "<br><span style=\"color:" + rankTextColor(json[6].AssistsRank) + "\"> (" +  getOrdinal(json[6].AssistsRank) + ")</span>" +
                 "<br><br>" +
-                "<b>DAMAGE DEALT:</b> " + addCommas(damageDealt.toFixed(0)) +
+                "<b>DAMAGE DEALT</b><br> " + addCommas(damageDealt.toFixed(0)) + "<br><span style=\"color:" + rankTextColor(json[6].DamageDealtRank) + "\"> (" +  getOrdinal(json[6].DamageDealtRank) + ")</span>" +
                 "<br><br>" +
-                "<b>DAMAGE TO CHAMPIONS:</b> " + addCommas(damageToChampions.toFixed(0)) +
+                "<b>CHAMPION DAMAGE</b><br> " + addCommas(damageToChampions.toFixed(0)) + "<br><span style=\"color:" + rankTextColor(json[6].DamageToChampionsRank) + "\"> (" +  getOrdinal(json[6].DamageToChampionsRank) + ")</span>" +
                 "<br><br>" +
-                "<b>DAMAGE TAKEN:</b> " + addCommas(damageTaken.toFixed(0)) +
+                "<b>DAMAGE TAKEN</b><br> " + addCommas(damageTaken.toFixed(0)) + "<br><span style=\"color:" + rankTextColor(json[6].DamageTakenRank) + "\"> (" +  getOrdinal(json[6].DamageTakenRank) + ")</span>" +
                 "<br><br>" +
-                "<b>HEALING:</b> " + addCommas(healing.toFixed(0)) +
+                "<b>HEALING</b><br> " + addCommas(healing.toFixed(0)) + "<br><span style=\"color:" + rankTextColor(json[6].HealingRank) + "\"> (" + getOrdinal(json[6].HealingRank) + ")</span>" +
                 "<br><br>" +
-                "<b>WARDS PLACED:</b> " + wardsPlaced.toFixed(1) +
+                "<b>WARDS PLACED</b><br> " + wardsPlaced.toFixed(1) + "<br><span style=\"color:" + rankTextColor(json[6].WardsPlacedRank) + "\"> (" + getOrdinal(json[6].WardsPlacedRank) + ")</span>" +
                 "<br><br>" +
-                "<b>WARDS KILLED:</b> " + wardsKilled.toFixed(1) +
+                "<b>WARDS KILLED</b><br> " + wardsKilled.toFixed(1) + "<br><span style=\"color:" + rankTextColor(json[6].WardsKilledRank) + "\"> (" + getOrdinal(json[6].WardsKilledRank) + ")</span>" +
                 "<br><br>" +
-                "<b>FIRST BLOOD:</b> " + firstBlood.toFixed(1) + "%" +
+                "<b>FIRST BLOOD</b><br> " + firstBlood.toFixed(1) + "%" + "<br><span style=\"color:" + rankTextColor(json[6].FirstBloodPercentRank) + "\"> (" + getOrdinal(json[6].FirstBloodPercentRank) + ")</span>" +
                 "<br><br>" +
-                "<b>FIRST TOWER:</b> " + firstTower.toFixed(1) + "%" +
+                "<b>FIRST TOWER</b><br> " + firstTower.toFixed(1) + "%" + "<br><span style=\"color:" + rankTextColor(json[6].FirstTowerPercentRank) + "\"> (" + getOrdinal(json[6].FirstTowerPercentRank) + ")</span>" +
                 "<br><br>" +
-                "<b>LEVEL AVERAGE:</b> " + avgLevel.toFixed(1) +
+                "<b>LEVEL AVERAGE</b><br> " + avgLevel.toFixed(1) + "<br><span style=\"color:" + rankTextColor(json[6].LevelRank) + "\"> (" + getOrdinal(json[6].LevelRank) + ")</span>" +
                 "<br><br>" +
-                "<b>MINIONS KILLED:</b> " + minionsKilled.toFixed(0) +
+                "<b>MINIONS KILLED</b><br>" + minionsKilled.toFixed(0) + "<br><span style=\"color:" + rankTextColor(json[6].MinionsKilledRank) + "\"> (" + getOrdinal(json[6].MinionsKilledRank) + ")</span>" +
                 "<br><br>" +
                 "</div>" +
                 "<div class=\"info-columns\" id=\"info-col-3\">" +
                 "<div id=\"damage-distribution\"><h4>DAMAGE DISTRIBUTION</h4></div>" +
+                "<br>" +
                 "<canvas id=\"damage-dealt\" width=\"300\" height=\"33\" data-toggle=\"tooltip\" " +
                             "data-placement=\"top\" data-html=\"true\" />" +
                 "<br><br>" +
@@ -818,7 +819,7 @@ function resetElements(divToReset) {
 /*
  * @function:       addCommas()
  * @description:    add comma's for thousands separator
- * @param:          divToReset
+ * @param:          commaSplit
  * @returns:        none
  */
 function addCommas(commaSplit)
@@ -834,7 +835,40 @@ function addCommas(commaSplit)
     return x1 + x2;
 }
 
+/*
+ * @function:       addOrdinal()
+ * @description:    add ordinal notation for numbers
+ * @param:          ordinalNumber
+ * @returns:        none
+ */
+ function getOrdinal(ordinalNumber) {
+     var s = ["th","st","nd","rd"], v = ordinalNumber % 100;
+     return ordinalNumber + (s[(v-20)%10]||s[v]||s[0]);
+  }
 
 /*
- * Copyright © 2017 - LOLCENSUS.COM
+* @function:       rankTextColor()
+* @description:    change color of text for ranking placement
+* @param:          rank
+* @returns:        color
+*/
+function rankTextColor(rank) {
+    var color = null;
+
+    if (rank <= 30) {
+       color = "#009933";
+    }
+    else if (rank > 30 && rank < 60) {
+        color = "#fff3cd";
+    }
+    else {
+        color = "#cc2900";
+    }
+
+    return color;
+}
+
+
+/*
+ * Copyright © 2018 - LEAGUECENSUS.COM
  */

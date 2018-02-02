@@ -8,7 +8,7 @@
  * @date:           Dec 14, 2015
  * @revision:	    v1.0.0
  *
- * This file is part of LOLCENSUS.
+ * This file is part of LEAGUECENSUS
  *
  * LOLCENSUS is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
  * You should have received a copy of the GNU General Public License
  * along with LOLCENSUS.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright © 2018 - LEAGUECENSUS.COM
  */
 
 // disable error reporting to hide api key on error messages
@@ -60,7 +60,7 @@ echo json_encode($obj, JSON_PRETTY_PRINT);
 
 
 /*
- * Copyright © 2017 - LOLCENSUS.COM
+ * Copyright © 2018 - LEAGUECENSUS.COM
  */
 
 ?>

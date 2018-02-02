@@ -91,8 +91,8 @@ input:-webkit-autofill {
     background-color: #1c1c1c;
 }
 #jumbotron-header {
-    padding: 10px;
-    margin: 0;
+    padding: 15px;
+    margin: 0 auto;
 }
 #header-img {
     width: 40%;
@@ -199,8 +199,8 @@ input:-webkit-autofill {
 /* search box */
 #search-box {
     background-color: #1c1c1c;
-    width: 30%;
-    margin: 40px auto 60px auto;
+    width: 35%;
+    margin: 35px auto 60px auto;
     border: 4px ridge #424242;
     padding: 10px;
 }
@@ -219,9 +219,6 @@ input:-webkit-autofill {
     text-align: center;
     color: #1c1c1c;
     font-weight: bold;
-}
-#searchedName:focus, #searchedName:hover {
-    border: 4px ridge #fab505;
 }
 #search-img:hover {
     -webkit-filter: brightness(130%);
@@ -292,33 +289,35 @@ table {
     background-color: #000;
 }
 .tab-content {
-    padding: 20px 0 20px 0;
+    padding: 10px 0 10px 0;
     text-align: left;
     background-color: #1c1c1c;
     border: 4px ridge #424242;
 }
-.tab-pane {
-    margin: 0 40px 0 40px;
-}
 /* info */
 .divInfo {
     display: flex;
-}
-.info-columns > b {
-    color: #fbc02d;
+    width: 100%;
 }
 .divInfo > div {
     flex: 1;
     -webkit-flex: 1; /* Safari */
     -ms-flex: 1; /* IE */
 }
+.info-columns {
+    width: 33.33%;
+    text-align: center;
+}
+.info-columns > b {
+    color: #fbc02d;
+}
 #info-col-1 {
-    padding: 0 20px 0 0;
     border-right: 4px ridge #424242;
+    padding: 0 20px 0 20px;
 }
 #info-col-2 {
-    padding: 0 20px 0 20px;
     border-right: 4px ridge #424242;
+    padding: 0 20px 0 20px;
 }
 #info-col-3 {
     padding: 0 20px 0 20px;
@@ -332,6 +331,7 @@ table {
     vertical-align: middle;
 }
 #damage-dealt {
+    width: 95%;
     border: 2px ridge #424242;
     vertical-align: middle;
 }
@@ -339,8 +339,11 @@ table {
     text-align: center;
     color: #fbc02d;
 }
+#damage-distribution > h4 {
+    margin: 0;
+}
 .damage-legend {
-    padding-left: 35px;
+    padding-left: 10px;
 }
 #phys-square {
     display: inline-block;
@@ -558,8 +561,8 @@ a.back-to-top:hover {
     font-size: 20px;
 }
 #modal-next:hover {
+    background-color: #6C0000;
     color: #fff;
-    border-color: #fff;
     cursor: pointer;
 }
 .close {

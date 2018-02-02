@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>LOL Census</title>
+    <title>League Census</title>
     <meta charset="utf-8">
     <meta name="description" content="LOL Census">
     <meta name="author" content="Mykel Agathos">
@@ -180,13 +180,13 @@
 </main>
 
 <footer class="container-fluid text-center" id="footer">
-    Copyright &copy; <?php echo date("Y") ?> | LOLCENSUS.COM | All Rights Reserved |
+    Copyright &copy; <?php echo date("Y") ?> | LEAGUECENSUS.COM | All Rights Reserved |
     <a href="terms.php">Terms of Service</a> |
     <a href="privacy.php">Privacy Policy</a> |
     <a href="contact.php">Contact</a>
     <br><br>
     <p>
-        LOLCENSUS isn't endorsed by Riot Games and doesn't reflect the views or opinions of
+        League Census isn't endorsed by Riot Games and doesn't reflect the views or opinions of
         Riot Games or anyone<br>officially involved in producing or managing League of Legends.
         League of Legends and Riot Games are<br>trademarks or registered trademarks of Riot Games,
         Inc. League of Legends &copy Riot Games, Inc.

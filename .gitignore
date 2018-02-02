@@ -2,6 +2,9 @@
 ##########
 config.ini
 secure
+images
+.htaccess
+.htpasswd
 .idea/*
 
 # Folder config file
