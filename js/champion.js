@@ -179,10 +179,7 @@ function loadChampionData(elem) {
         img.setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" +
             fixChampionNames(championName) + "_0.jpg");
     }
-    img.setAttribute("width", "40%");
-    img.setAttribute("height", "40%");
     img.setAttribute("alt", championName);
-    img.setAttribute("style", "margin:0 0 40px 0;");
     divMainHeaders.appendChild(img);
     // tabs
     // tab: information
@@ -356,20 +353,21 @@ function loadChampionData(elem) {
             var minionsKilled = parseFloat(json[5].AvgMinionsKilled);
             $('.divInfo').html(
                 "<div class=\"info-columns\" id=\"info-col-1\">" +
-                "<b>NAME:</b> " + json.ChampionName +
+                "<h3>BASIC INFORMATION</h3><br><br>" +
+                "<b>NAME</b><br>" + json.ChampionName +
                 "<br>" +
-                "<b>TITLE:</b> " + json.Title +
-                "<br>" +
-                "<b>FACTION:</b> " + json[4].Faction +
-                "<br>" +
-                "<b>RELEASE DATE:</b> " + json[4].ReleaseDate +
-                "<br>" +
-                "<b>ID:</b> " + json.Id +
+                "\"" + json.Title + "\"" +
                 "<br><br>" +
-                "<b>RESOURCE:</b> " + json.ParType +
-                "<br>" +
-                "<b>ROLE:</b> " + json.Tags +
+                "<b>FACTION</b><br>" + json[4].Faction +
                 "<br><br>" +
+                "<b>RELEASE DATE</b><br>" + json[4].ReleaseDate +
+                "<br><br>" +
+                "<b>CHAMPION ID</b><br>" + json.Id +
+                "<br><br>" +
+                "<b>RESOURCE</b><br>" + json.ParType +
+                "<br><br>" +
+                "<b>ROLE</b><br>" + json.Tags +
+                "<br><br><br>" +
                 "<span class=\"spanAttributeBar\" id=\"spanAttackBar\" data-toggle=\"tooltip\" " +
                              "data-placement=\"top\" >" +
                 "<img src=\"images/sword.png\" width=\"27\" height=\"27\" /> " +
@@ -390,37 +388,38 @@ function loadChampionData(elem) {
                 "<img src=\"images/stairs.png\" width=\"27\" height=\"27\" /> " +
                 "<canvas id=\"difficultyBar\" width=\"200\" height=\"23\" />" +
                 "</span>" +
-                "<br>" +
-                "<b>HEALTH:</b> " + parseFloat(json.Hp).toFixed(0) +
+                "<br><br>" +
+                "<b>HEALTH</b><br>" + parseFloat(json.Hp).toFixed(0) +
                 " (+" + parseFloat(json.HpPerLevel).toFixed(0) + "/LVL)" +
-                "<br>" +
-                "<b>HEALTH REGEN:</b> " + parseFloat(json.HpRegen).toFixed(1) +
+                "<br><br>" +
+                "<b>HEALTH REGEN</b><br>" + parseFloat(json.HpRegen).toFixed(1) +
                 " (+" + parseFloat(json.HpRegenPerLevel).toFixed(1) + "/LVL)" +
                 "<br><br>" +
-                "<b>MANA:</b> " + parseFloat(json.Mp).toFixed(0) +
+                "<b>MANA</b><br>" + parseFloat(json.Mp).toFixed(0) +
                 " (+" + parseFloat(json.MpPerLevel).toFixed(0) + "/LVL)" +
-                "<br>" +
-                "<b>MANA REGEN:</b> " + parseFloat(json.MpRegen).toFixed(1) +
+                "<br><br>" +
+                "<b>MANA REGEN</b><br>" + parseFloat(json.MpRegen).toFixed(1) +
                 " (+" + parseFloat(json.MpRegenPerLevel).toFixed(1) + "/LVL)" +
                 "<br><br>" +
-                "<b>ATTACK DAMAGE:</b> " + parseFloat(json.AttackDamage).toFixed(1) +
+                "<b>ATTACK DAMAGE</b><br>" + parseFloat(json.AttackDamage).toFixed(1) +
                 " (+" + parseFloat(json.AttackDamagePerLevel).toFixed(1) + "/LVL)" +
-                "<br>" +
-                "<b>ATTACK SPEED:</b> " + attackSpeed.toFixed(2) + "/sec" +
+                "<br><br>" +
+                "<b>ATTACK SPEED</b><br>" + attackSpeed.toFixed(2) + "/sec" +
                 " (+" + parseFloat(json.AttackSpeedPerLevel).toFixed(2) + "%/LVL)" +
                 "<br><br>" +
-                "<b>ARMOR:</b> " + parseFloat(json.Armor).toFixed(1) +
+                "<b>ARMOR</b><br>" + parseFloat(json.Armor).toFixed(1) +
                 " (+" + parseFloat(json.ArmorPerLevel).toFixed(1) + "/LVL)" +
-                "<br>" +
-                "<b>MAGIC RESIST:</b> " + parseFloat(json.SpellBlock).toFixed(1) +
+                "<br><br>" +
+                "<b>MAGIC RESIST</b><br>" + parseFloat(json.SpellBlock).toFixed(1) +
                 " (+" + parseFloat(json.SpellBlockPerLevel).toFixed(1) + "/LVL)" +
                 "<br><br>" +
-                "<b>RANGE:</b> " + parseFloat(json.AttackRange).toFixed(0) +
-                "<br>" +
-                "<b>MOVEMENT:</b> " + parseFloat(json.MoveSpeed).toFixed(0) +
+                "<b>RANGE</b><br>" + parseFloat(json.AttackRange).toFixed(0) +
+                "<br><br>" +
+                "<b>MOVEMENT</b><br>" + parseFloat(json.MoveSpeed).toFixed(0) +
                 "<br><br>" +
                 "</div>" +
                 "<div class=\"info-columns\" id=\"info-col-2\">" +
+                "<h3>IN-GAME STATISTICS</h3><br><br>" +
                 "<b>WIN RATE</b><br> " + winPercent.toFixed(1) + "%" + "<br><span style=\"color:" + rankTextColor(json[6].WinRank) + "\"> (" + getOrdinal(json[6].WinRank) + ")</span>" +
                 "<br><br>" +
                 "<b>PICK RATE</b><br> " + pickRate.toFixed(1) + "%" + "<br><span style=\"color:" + rankTextColor(json[6].PickRank) + "\"> (" +  getOrdinal(json[6].PickRank) + ")</span>" +
@@ -457,8 +456,9 @@ function loadChampionData(elem) {
                 "<br><br>" +
                 "</div>" +
                 "<div class=\"info-columns\" id=\"info-col-3\">" +
-                "<div id=\"damage-distribution\"><h4>DAMAGE DISTRIBUTION</h4></div>" +
-                "<br>" +
+                "<h3>CHARTS</h3><br><br>" +
+                "<b>DAMAGE DISTRIBUTION</b>" +
+                "<br><br>" +
                 "<canvas id=\"damage-dealt\" width=\"300\" height=\"33\" data-toggle=\"tooltip\" " +
                             "data-placement=\"top\" data-html=\"true\" />" +
                 "<br><br>" +

@@ -7,12 +7,36 @@
     <meta name="author" content="Mykel Agathos">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Syncopate">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Handlee|Inconsolata">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <!-- cookie policy -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#fbc02d"
+                    },
+                    "button": {
+                        "background": "transparent",
+                        "text": "#000000",
+                        "border": "#000000"
+                    }
+                },
+                "content": {
+                    "message": "Greetings, Summoner! This website uses cookies to ensure you get the best experience.",
+                    "dismiss": "GOT IT!",
+                    "link": "Our Policy",
+                    "href": "www.leaguecensus.com/cookies"
+                }
+            })});
+    </script>
 </head>
 <body>
 
@@ -25,6 +49,7 @@
             </button>
             <div class="modal-header">
                 <img id="modal-logo" alt="Logo" src="images/logo-L.png">
+                <br><br>
                 <h4 class="modal-title">LOGIN</h4>
             </div>
             <div class="modal-body">
@@ -75,6 +100,7 @@
             </button>
             <div class="modal-header">
                 <img id="modal-logo" alt="Logo" src="images/logo-L.png">
+                <br><br>
                 <h4 class="modal-title">SIGN-UP</h4>
             </div>
             <div class="modal-body">

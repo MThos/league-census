@@ -1,6 +1,6 @@
 html, body {
     background-color: #1c1c1c;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Handlee', 'Inconsolata', monospace;
     color: #c7c7c7;
     height: 100%;
     line-height: 1.2;
@@ -8,13 +8,13 @@ html, body {
     padding-top: 50px;
 }
 /* links */
-a:link, a:focus, a:active, a:visited {
+a:link, a:focus, a:visited {
     color: #fbc02d;
     text-decoration: none;
     font-weight: bold;
     outline: none !important;
 }
-a:hover {
+a:hover, a:active {
     color: #fff;
     text-decoration: none;
     outline: none !important;
@@ -23,16 +23,11 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     margin: 10px 0 10px 0;
+    color: #fbc02d;
 }
 /* paragraphs */
 p {
     margin: 0;
-}
-/* logo */
-#nav-logo:hover {
-    cursor: pointer;
-    -webkit-filter: brightness(140%);
-    filter: brightness(140%);
 }
 /* text box */
 input:-webkit-autofill {
@@ -46,28 +41,31 @@ input:-webkit-autofill {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+/* logo */
+#nav-logo:hover {
+    cursor: pointer;
+    -webkit-filter: brightness(120%);
+    filter: brightness(120%);
+}
 /* navs */
 .navbar {
-    margin-bottom: 0;
-    border-radius: 0;
     background-color: #222;
     border-bottom: 4px ridge #424242;
+    height: 75px;
 }
 .navbar-brand {
-    height: 100px;
+    padding: 0;
 }
 .navbar-brand > img {
-    width: 70px;
+    width: 50px;
     height: auto;
-    margin: 0 0 0 20px;
+    margin: 10px 0 0 20px;
 }
 .navbar-nav {
-    margin: 22px 0 0 60px;
+    margin: 0 0 0 40px;
 }
 .navbar-nav > li > a {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    line-height: 20px;
+    line-height: 47px;
     font-weight: bold;
     font-size: 18px;
 }
@@ -89,10 +87,8 @@ input:-webkit-autofill {
 /* jumbotron and header */
 .jumbotron {
     background-color: #1c1c1c;
-}
-#jumbotron-header {
-    padding: 15px;
-    margin: 0 auto;
+    padding: 10px 0 10px 0;
+    margin: -25px 0 0 0;
 }
 #header-img {
     width: 40%;
@@ -239,8 +235,11 @@ table {
     color: #fbc02d;
     font-size: 18px;
 }
+#champion-img {
+    border: 2px ridge #424242;
+}
 #champion-img:hover {
-    border: 4px ridge #fab505; /* fbc02d gold color was too bright on border */
+    border: 2px ridge #fab505; /* fbc02d gold color was too bright on border */
     cursor: pointer;
     -webkit-filter: brightness(120%);
     filter: brightness(120%);
@@ -257,11 +256,15 @@ table {
 }
 #champion-splash {
     border: 4px ridge #1c1c1c;
-    border-radius: 15%;
+    border-radius: 10%;
+    width: 60%;
+    height: 60%;
+    margin: 0 0 40px 0;
 }
 #champion-splash:hover {
     -webkit-filter: brightness(120%);
     filter: brightness(120%);
+    cursor: pointer;
 }
 #championNameHeader {
     color: #fbc02d;
@@ -323,8 +326,14 @@ table {
     padding: 0 20px 0 20px;
 }
 .spanAttributeBar {
-    display: block;
+    display: inline-block;
     padding: 2px 0 2px 0;
+} /* --------- fix -------- */
+.spanAttributeBar > img {
+    float: left;
+} /* --------- fix -------- */
+.spanAttributeBar > canvas {
+    float: right;
 }
 #attackBar, #defenseBar, #magicBar, #difficultyBar {
     border: 2px ridge #424242;
@@ -343,7 +352,7 @@ table {
     margin: 0;
 }
 .damage-legend {
-    padding-left: 10px;
+    padding: 0;
 }
 #phys-square {
     display: inline-block;
@@ -467,6 +476,7 @@ a.back-to-top {
 a.back-to-top:hover {
     -webkit-filter: brightness(110%);
     filter: brightness(110%);
+
 }
 /* clearfix hack - stop overlap from parent div */
 .clearfix:after {
