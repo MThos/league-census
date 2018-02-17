@@ -287,7 +287,7 @@ function loadChampionData(elem) {
     // panel: tips and tricks
     divPanel = document.createElement("div");
     divPanel.setAttribute("role", "tabpanel");
-    divPanel.setAttribute("class", "tab-pane fade");
+    divPanel.setAttribute("class", " tab-pane fade");
     divPanel.setAttribute("id", "tipstricks");
     var divAllyTips = document.createElement("div");
     divAllyTips.setAttribute("id", "divAllyTips");
@@ -353,7 +353,8 @@ function loadChampionData(elem) {
             var minionsKilled = parseFloat(json[5].AvgMinionsKilled);
             $('.divInfo').html(
                 "<div class=\"info-columns\" id=\"info-col-1\">" +
-                "<h3>BASIC INFORMATION</h3><br><br>" +
+                "<h3>BASIC INFORMATION</h3>" +
+                "<hr><br>" +
                 "<b>NAME</b><br>" + json.ChampionName +
                 "<br>" +
                 "\"" + json.Title + "\"" +
@@ -368,27 +369,8 @@ function loadChampionData(elem) {
                 "<br><br>" +
                 "<b>ROLE</b><br>" + json.Tags +
                 "<br><br><br>" +
-                "<span class=\"spanAttributeBar\" id=\"spanAttackBar\" data-toggle=\"tooltip\" " +
-                             "data-placement=\"top\" >" +
-                "<img src=\"images/sword.png\" width=\"27\" height=\"27\" /> " +
-                "<canvas id=\"attackBar\" width=\"200\" height=\"23\" />" +
-                "</span>" +
-                "<span class=\"spanAttributeBar\" id=\"spanDefenseBar\" data-toggle=\"tooltip\" " +
-                             "data-placement=\"top\" >" +
-                "<img src=\"images/shield.png\" width=\"27\" height=\"27\" /> " +
-                "<canvas id=\"defenseBar\" width=\"200\" height=\"23\" />" +
-                "</span>" +
-                "<span class=\"spanAttributeBar\" id=\"spanMagicBar\" data-toggle=\"tooltip\" " +
-                             "data-placement=\"top\" >" +
-                "<img src=\"images/flame.png\" width=\"27\" height=\"27\" /> " +
-                "<canvas id=\"magicBar\" width=\"200\" height=\"23\" />" +
-                "</span>" +
-                "<span class=\"spanAttributeBar\" id=\"spanDifficultyBar\" data-toggle=\"tooltip\" " +
-                             "data-placement=\"top\" >" +
-                "<img src=\"images/stairs.png\" width=\"27\" height=\"27\" /> " +
-                "<canvas id=\"difficultyBar\" width=\"200\" height=\"23\" />" +
-                "</span>" +
-                "<br><br>" +
+                "<h3>ATTRIBUTES</h3>" +
+                "<hr><br>" +
                 "<b>HEALTH</b><br>" + parseFloat(json.Hp).toFixed(0) +
                 " (+" + parseFloat(json.HpPerLevel).toFixed(0) + "/LVL)" +
                 "<br><br>" +
@@ -419,7 +401,8 @@ function loadChampionData(elem) {
                 "<br><br>" +
                 "</div>" +
                 "<div class=\"info-columns\" id=\"info-col-2\">" +
-                "<h3>IN-GAME STATISTICS</h3><br><br>" +
+                "<h3>IN-GAME STATISTICS</h3>" +
+                "<hr><br>" +
                 "<b>WIN RATE</b><br> " + winPercent.toFixed(1) + "%" + "<br><span style=\"color:" + rankTextColor(json[6].WinRank) + "\"> (" + getOrdinal(json[6].WinRank) + ")</span>" +
                 "<br><br>" +
                 "<b>PICK RATE</b><br> " + pickRate.toFixed(1) + "%" + "<br><span style=\"color:" + rankTextColor(json[6].PickRank) + "\"> (" +  getOrdinal(json[6].PickRank) + ")</span>" +
@@ -456,7 +439,8 @@ function loadChampionData(elem) {
                 "<br><br>" +
                 "</div>" +
                 "<div class=\"info-columns\" id=\"info-col-3\">" +
-                "<h3>CHARTS</h3><br><br>" +
+                "<h3>CHARTS</h3>" +
+                "<hr><br>" +
                 "<b>DAMAGE DISTRIBUTION</b>" +
                 "<br><br>" +
                 "<canvas id=\"damage-dealt\" width=\"300\" height=\"33\" data-toggle=\"tooltip\" " +
@@ -467,6 +451,30 @@ function loadChampionData(elem) {
                 "<div id=\"magic-square\"></div><span class=\"legend\">Magic</span>" +
                 "<div id=\"true-square\"></div><span class=\"legend\">True</span>" +
                 "</div>" +
+                "<br><br><br>" +
+                "<b>ATTRIBUTES</b>" +
+                "<br><br>" +
+                "<span class=\"spanAttributeBar\" id=\"spanAttackBar\" data-toggle=\"tooltip\" " +
+                "data-placement=\"top\" >" +
+                "<img src=\"images/sword.png\" width=\"27\" height=\"27\" /> " +
+                "<canvas id=\"attackBar\" width=\"200\" height=\"23\" />" +
+                "</span>" +
+                "<span class=\"spanAttributeBar\" id=\"spanDefenseBar\" data-toggle=\"tooltip\" " +
+                "data-placement=\"top\" >" +
+                "<img src=\"images/shield.png\" width=\"27\" height=\"27\" /> " +
+                "<canvas id=\"defenseBar\" width=\"200\" height=\"23\" />" +
+                "</span>" +
+                "<span class=\"spanAttributeBar\" id=\"spanMagicBar\" data-toggle=\"tooltip\" " +
+                "data-placement=\"top\" >" +
+                "<img src=\"images/flame.png\" width=\"27\" height=\"27\" /> " +
+                "<canvas id=\"magicBar\" width=\"200\" height=\"23\" />" +
+                "</span>" +
+                "<span class=\"spanAttributeBar\" id=\"spanDifficultyBar\" data-toggle=\"tooltip\" " +
+                "data-placement=\"top\" >" +
+                "<img src=\"images/stairs.png\" width=\"27\" height=\"27\" /> " +
+                "<canvas id=\"difficultyBar\" width=\"200\" height=\"23\" />" +
+                "</span>" +
+                "<canvas id=\"kda\" width=\"100\" height=\"100\"></canvas>" +
                 "</div>"
             );
             // damage dealt bar
@@ -486,10 +494,12 @@ function loadChampionData(elem) {
             var magicDec = magic * 0.1;
             var difficultyDec = difficulty * 0.1;
             // draw canvas attack/defense/magic/difficulty bars
-            drawCanvas(attackDec, defenseDec, magicDec, difficultyDec);
+            createAttributeBar(attackDec, defenseDec, magicDec, difficultyDec);
             // display passive info
             var spellName = json.PassiveName;
             var upperCaseSpellName = spellName.toUpperCase();
+            // kda graph
+            createKdaGraph(kills, deaths, assists);
             $('#divPassive').html(
                 "<div class=\"SpellImage\">" +
                 "<img src=\"http://ddragon.leagueoflegends.com/cdn/" + DATA_DRAGON +
@@ -617,12 +627,12 @@ function replaceWithBreak(replace) {
 }
 
 /*
- * @function:       drawCanvas()
+ * @function:       createAttributeBar()
  * @description:    draws canvas bar for attack, defense, magic and difficulty.
  * @param:          attackDec, defenseDec, magicDef, difficultyDec
  * @returns:        none
  */
-function drawCanvas(attackDec, defenseDec, magicDec, difficultyDec) {
+function createAttributeBar(attackDec, defenseDec, magicDec, difficultyDec) {
     // attack
     var canvas = document.getElementById("attackBar");
     var ctx = canvas.getContext("2d");
@@ -702,6 +712,51 @@ function createDamageDealtBar(physicalDamageToChampions, magicDamageToChampions,
     document.getElementById("damage-dealt").title = "<b>Physical:</b> " + (physicalPercent*100).toFixed(1) + "%" +
                                                     "<br><b>Magical:</b> " + (magicPercent*100).toFixed(1) + "%" +
                                                     "<br><b>True:</b> " + (truePercent*100).toFixed(1) + "%";
+}
+
+/*
+ * @function:       createKdaGraph()
+ * @description:    create a graph on canvas "kda" for champion KDA.
+ * @param:          kills, deaths, assists
+ * @returns:        none
+ */
+function createKdaGraph(kills, deaths, assists) {
+    var kdaChart;
+    // if a chart exists, clear it before creating next
+    if (kdaChart !== undefined || kdaChart !== null) {
+        kdaChart.clear();
+    }
+    var data = {
+        labels: [],
+        datasets: [
+            {
+                data: [133.3, 86.2, 52.2, 51.2, 50.2],
+                backgroundColor: [
+                    "#FF6384",
+                    "#63FF84",
+                    "#84FF63",
+                    "#8463FF",
+                    "#6384FF"
+                ],
+                borderColor: "black",
+                borderWidth: 2
+            }
+        ]
+    };
+    var options = {
+        rotation: -Math.PI,
+        cutoutPercentage: 30,
+        circumference: Math.PI,
+        legend: {
+            position: 'left'
+        },
+        animation: {
+            animateRotate: false,
+            animateScale: true
+        }
+    };
+    var ctx = document.getElementById("kda").getContext("2d");
+    kdaChart = new Chart(ctx).Doughnut(data, options);
 }
 
 /*

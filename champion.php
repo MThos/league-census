@@ -58,7 +58,7 @@
                     <div class="form-group has-feedback">
                         <div class="input-group" id="modal-signup-email">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                            <input type="email" class="form-control" id="input-signup-email" placeholder="Email"
+                            <input type="email" class="form-control" id="input-login-email" placeholder="Email"
                                    data-error="That email address is invalid" required>
                         </div>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -67,7 +67,7 @@
                     <div class="form-group has-feedback">
                         <div class="input-group" id="modal-signup-pass">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="password" class="form-control" id="input-signup-pass" placeholder="Password"
+                            <input type="password" class="form-control" id="input-login-pass" placeholder="Password"
                                    data-minlength="6" data-error="Minimum of 6 characters" required>
                         </div>
                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -79,7 +79,7 @@
                     <div class="modal-footer">
                         <div class="form-group">
                             <a href="#">
-                                <button type="submit" class="btn btn-primary" id="modal-next">
+                                <button type="submit" class="modal-next btn btn-primary">
                                     <span class="glyphicon glyphicon-chevron-right" id="next-button"></span>
                                 </button>
                             </a>
@@ -141,7 +141,7 @@
                     <div class="modal-footer">
                         <div class="form-group">
                             <a href="#">
-                                <button type="submit" class="btn btn-primary" id="modal-next">
+                                <button type="submit" class="modal-next btn btn-primary">
                                     <span class="glyphicon glyphicon-chevron-right" id="next-button"></span>
                                 </button>
                             </a>
