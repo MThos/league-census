@@ -192,10 +192,11 @@ function loadChampionData(elem) {
     divMainInfo.appendChild(ul);
     var li = document.createElement("li");
     li.setAttribute("role", "presentation");
-    li.setAttribute("class", "active");
+    li.setAttribute("class", "nav-item active");
     ul.appendChild(li);
     var a = document.createElement("a");
     a.setAttribute("href", "#information");
+    a.setAttribute("class", "nav-link");
     a.setAttribute("aria-controls", "information");
     a.setAttribute("role", "tab");
     a.setAttribute("data-toggle", "tab");
@@ -205,9 +206,11 @@ function loadChampionData(elem) {
     // tab: spells
     li = document.createElement("li");
     li.setAttribute("role", "presentation");
+    li.setAttribute("class", "nav-item");
     ul.appendChild(li);
     a = document.createElement("a");
     a.setAttribute("href", "#spells");
+    a.setAttribute("class", "nav-link");
     a.setAttribute("aria-controls", "spells");
     a.setAttribute("role", "tab");
     a.setAttribute("data-toggle", "tab");
@@ -217,9 +220,11 @@ function loadChampionData(elem) {
     // tab: lore
     li = document.createElement("li");
     li.setAttribute("role", "presentation");
+    li.setAttribute("class", "nav-item");
     ul.appendChild(li);
     a = document.createElement("a");
     a.setAttribute("href", "#lore");
+    a.setAttribute("class", "nav-link");
     a.setAttribute("aria-controls", "lore");
     a.setAttribute("role", "tab");
     a.setAttribute("data-toggle", "tab");
@@ -229,9 +234,11 @@ function loadChampionData(elem) {
     // tab: tips and tricks
     li = document.createElement("li");
     li.setAttribute("role", "presentation");
+    li.setAttribute("class", "nav-item");
     ul.appendChild(li);
     a = document.createElement("a");
     a.setAttribute("href", "#tipstricks");
+    a.setAttribute("class", "nav-link");
     a.setAttribute("aria-controls", "tipstricks");
     a.setAttribute("role", "tab");
     a.setAttribute("data-toggle", "tab");
@@ -474,7 +481,7 @@ function loadChampionData(elem) {
                 "<img src=\"images/stairs.png\" width=\"27\" height=\"27\" /> " +
                 "<canvas id=\"difficultyBar\" width=\"200\" height=\"23\" />" +
                 "</span>" +
-                "<canvas id=\"kda\" width=\"100\" height=\"100\"></canvas>" +
+                "<canvas id=\"kda\" width=\"100\" height=\"100\" />" +
                 "</div>"
             );
             // damage dealt bar
@@ -495,11 +502,11 @@ function loadChampionData(elem) {
             var difficultyDec = difficulty * 0.1;
             // draw canvas attack/defense/magic/difficulty bars
             createAttributeBar(attackDec, defenseDec, magicDec, difficultyDec);
+            // kda graph
+            createKdaGraph(kills, deaths, assists);
             // display passive info
             var spellName = json.PassiveName;
             var upperCaseSpellName = spellName.toUpperCase();
-            // kda graph
-            createKdaGraph(kills, deaths, assists);
             $('#divPassive').html(
                 "<div class=\"SpellImage\">" +
                 "<img src=\"http://ddragon.leagueoflegends.com/cdn/" + DATA_DRAGON +

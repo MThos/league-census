@@ -8,7 +8,10 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Handlee|Inconsolata">
+    <!--[if lte IE 9]>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <![endif]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/normalize.css">
@@ -154,39 +157,36 @@
 </div>
 
 <!-- nav bar -->
-<nav class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="../index.php">
-                <img id="nav-logo" alt="Logo" src="images/logo-L.png">
+<nav class="navbar fixed-top navbar-inverse">
+    <a class="navbar-brand" href="index.php">
+        <img id="nav-logo" alt="Logo" src="images/logo-L.png">
+    </a>
+    <ul class="navbar-nav">
+        <li class="nav-item"><a href="summoner.php" class="nav-link hvr-pulse-grow">
+                <span class="glyphicon glyphicon-share-alt"></span> SUMMONERS
             </a>
-            <ul class="nav navbar-nav">
-                <li><a href="summoner.php" class="hvr-pulse-grow">
-                        <span class="glyphicon glyphicon-share-alt"></span> SUMMONERS
-                    </a>
-                </li>
-                <li class="active"><a href="champion.php" class="hvr-pulse-grow">
-                        <span class="glyphicon glyphicon-share-alt"></span> CHAMPIONS
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li><a href="items.php" class="hvr-pulse-grow">
-                        <span class="glyphicon glyphicon-share-alt"></span> ITEMS
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" data-toggle="modal" data-target="#signup-modal" class="hvr-pulse-grow">
-                    <span class="glyphicon glyphicon-new-window"></span> SIGNUP
-                </a>
-            </li>
-            <li><a href="#" data-toggle="modal" data-target="#login-modal" class="hvr-pulse-grow">
-                    <span class="glyphicon glyphicon-log-in"></span> LOGIN
-                </a>
-            </li>
-        </ul>
-    </div>
+        </li>
+        <li class="nav-item active"><a href="champion.php" class="nav-link hvr-pulse-grow">
+                <span class="glyphicon glyphicon-share-alt"></span> CHAMPIONS
+                <span class="sr-only">(current)</span>
+            </a>
+        </li>
+        <li class="nav-item"><a href="items.php" class="nav-link hvr-pulse-grow">
+                <span class="glyphicon glyphicon-share-alt"></span> ITEMS
+            </a>
+        </li>
+    </ul>
+
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="#" data-toggle="modal" data-target="#signup-modal" class="nav-link hvr-pulse-grow">
+            <span class="glyphicon glyphicon-new-window"></span> SIGNUP
+        </a>
+    </li>
+    <li><a href="#" data-toggle="modal" data-target="#login-modal" class="nav-link hvr-pulse-grow">
+            <span class="glyphicon glyphicon-log-in"></span> LOGIN
+        </a>
+    </li>
+</ul>
 </nav>
 
 <!-- header -->
@@ -198,9 +198,14 @@
 
 <!-- main content -->
 <main id="main-content">
+    <!--[if lte IE 9]>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <![endif]-->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="           crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.js"></script>
     <script src="js/versions.js"></script>
     <script src="js/chart.js"></script>
