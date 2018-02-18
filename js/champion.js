@@ -171,7 +171,7 @@ function loadChampionData(elem) {
     // image of champion
     var img = document.createElement("img");
     img.setAttribute("id", "champion-splash");
-    if (championName == "Wukong") {
+    if (championName === "Wukong") {
         img.setAttribute("src", "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/" +
             "MonkeyKing_0.jpg");
     }
@@ -192,11 +192,11 @@ function loadChampionData(elem) {
     divMainInfo.appendChild(ul);
     var li = document.createElement("li");
     li.setAttribute("role", "presentation");
-    li.setAttribute("class", "nav-item active");
+    li.setAttribute("class", "tab-item active");
     ul.appendChild(li);
     var a = document.createElement("a");
     a.setAttribute("href", "#information");
-    a.setAttribute("class", "nav-link");
+    a.setAttribute("class", "tab-link");
     a.setAttribute("aria-controls", "information");
     a.setAttribute("role", "tab");
     a.setAttribute("data-toggle", "tab");
@@ -206,11 +206,11 @@ function loadChampionData(elem) {
     // tab: spells
     li = document.createElement("li");
     li.setAttribute("role", "presentation");
-    li.setAttribute("class", "nav-item");
+    li.setAttribute("class", "tab-item");
     ul.appendChild(li);
     a = document.createElement("a");
     a.setAttribute("href", "#spells");
-    a.setAttribute("class", "nav-link");
+    a.setAttribute("class", "tab-link");
     a.setAttribute("aria-controls", "spells");
     a.setAttribute("role", "tab");
     a.setAttribute("data-toggle", "tab");
@@ -220,11 +220,11 @@ function loadChampionData(elem) {
     // tab: lore
     li = document.createElement("li");
     li.setAttribute("role", "presentation");
-    li.setAttribute("class", "nav-item");
+    li.setAttribute("class", "tab-item");
     ul.appendChild(li);
     a = document.createElement("a");
     a.setAttribute("href", "#lore");
-    a.setAttribute("class", "nav-link");
+    a.setAttribute("class", "tab-link");
     a.setAttribute("aria-controls", "lore");
     a.setAttribute("role", "tab");
     a.setAttribute("data-toggle", "tab");
@@ -234,11 +234,11 @@ function loadChampionData(elem) {
     // tab: tips and tricks
     li = document.createElement("li");
     li.setAttribute("role", "presentation");
-    li.setAttribute("class", "nav-item");
+    li.setAttribute("class", "tab-item");
     ul.appendChild(li);
     a = document.createElement("a");
     a.setAttribute("href", "#tipstricks");
-    a.setAttribute("class", "nav-link");
+    a.setAttribute("class", "tab-link");
     a.setAttribute("aria-controls", "tipstricks");
     a.setAttribute("role", "tab");
     a.setAttribute("data-toggle", "tab");
@@ -728,11 +728,11 @@ function createDamageDealtBar(physicalDamageToChampions, magicDamageToChampions,
  * @returns:        none
  */
 function createKdaGraph(kills, deaths, assists) {
-    var kdaChart;
+    //var kdaChart;
     // if a chart exists, clear it before creating next
-    if (kdaChart !== undefined || kdaChart !== null) {
-        kdaChart.clear();
-    }
+    //if (kdaChart !== undefined || kdaChart !== null) {
+    //    kdaChart.clear();
+    //}
     var data = {
         labels: [],
         datasets: [

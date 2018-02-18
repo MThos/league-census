@@ -161,7 +161,7 @@
     <a class="navbar-brand" href="index.php">
         <img id="nav-logo" alt="Logo" src="images/logo-L.png">
     </a>
-    <ul class="navbar-nav">
+    <ul class="navbar-nav navbar-left">
         <li class="nav-item"><a href="summoner.php" class="nav-link hvr-pulse-grow">
                 <span class="glyphicon glyphicon-share-alt"></span> SUMMONERS
             </a>
@@ -176,17 +176,16 @@
             </a>
         </li>
     </ul>
-
-<ul class="nav navbar-nav navbar-right">
-    <li><a href="#" data-toggle="modal" data-target="#signup-modal" class="nav-link hvr-pulse-grow">
-            <span class="glyphicon glyphicon-new-window"></span> SIGNUP
-        </a>
-    </li>
-    <li><a href="#" data-toggle="modal" data-target="#login-modal" class="nav-link hvr-pulse-grow">
-            <span class="glyphicon glyphicon-log-in"></span> LOGIN
-        </a>
-    </li>
-</ul>
+    <ul class="navbar-nav navbar-right">
+        <li class="nav-item"><a href="#" data-toggle="modal" data-target="#signup-modal" class="nav-link hvr-pulse-grow">
+                <span class="glyphicon glyphicon-new-window"></span> SIGNUP
+            </a>
+        </li>
+        <li class="nav-item"><a href="#" data-toggle="modal" data-target="#login-modal" class="nav-link hvr-pulse-grow">
+                <span class="glyphicon glyphicon-log-in"></span> LOGIN
+            </a>
+        </li>
+    </ul>
 </nav>
 
 <!-- header -->
