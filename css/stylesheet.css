@@ -289,14 +289,16 @@ table {
     padding: 15px;
     margin: 30px 0 10px 0;
     border: 4px ridge #424242;
+    background-color: #1c1c1c;
 }
-.tab-item:active,
-.tab-item:hover,
-.tab-item:focus {
+.nav-pills .tab-item .tab-link.active {
     color: #fff;
-    background-color: #000;
 }
 .tab-item:hover {
+    color: #fbc02d;
+    background-color: #000;
+}
+.tab-link:hover {
     color: #fbc02d;
     background-color: #000;
 }
@@ -479,7 +481,7 @@ a.back-to-top {
     position: fixed;
     z-index: 999;
     right: 25px;
-    bottom: 140px;
+    bottom: 180px;
     background: url("../images/top-arrow2-resize.png");
 }
 a.back-to-top:hover {
@@ -548,6 +550,9 @@ a.back-to-top:hover {
 .modal-body {
     text-align: center;
 }
+.modal-body-info {
+    border-top: 4px ridge #424242;
+}
 .modal-body > p {
     padding: 20px 0 20px 0;
 }
@@ -555,6 +560,10 @@ a.back-to-top:hover {
     border-top: 4px ridge #424242;
     text-align: center;
     margin: auto;
+}
+.modal-footer-info {
+    padding-top:25px;
+    padding-bottom:20px;
 }
 #modal-login-pass {
     padding: 1px 0 1px 0;

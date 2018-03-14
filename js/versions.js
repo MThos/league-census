@@ -25,7 +25,7 @@
  */
 
 // data dragon
-var DATA_DRAGON = "8.2.1";
+var DATA_DRAGON = "8.5.2";
 
 // riot api
 var CHAMPION_API = "lol/platform/v3";

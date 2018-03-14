@@ -35,7 +35,7 @@ $con = mysqli_connect($config["host"],
                       $config["sqlPass"],
                       $config["dbName"]);
 if ($con === false) {
-    return mysqli_connect_error();
+	return mysqli_connect_error();
 }
 // select API key from db
 $apiQuery = mysqli_query($con, "SELECT api_key FROM secure_api");
@@ -48,12 +48,12 @@ $hash = md5($url);
 $cacheFile = "cache/$hash";
 // if cache file older than 3600s, refresh it
 if (file_exists($cacheFile) && filemtime($cacheFile) > time() - 3600) {
-    $json = file_get_contents($cacheFile);
+	$json = file_get_contents($cacheFile);
 }
 else {
-    unlink($cacheFile); // delete old cache
-    $json = file_get_contents("https://".$url."api_key=".$key);
-    file_put_contents($cacheFile, $json);
+  unlink($cacheFile); // delete old cache
+  $json = file_get_contents("https://".$url."api_key=".$key);
+  file_put_contents($cacheFile, $json);
 }
 $obj = json_decode($json);
 echo json_encode($obj, JSON_PRETTY_PRINT);
