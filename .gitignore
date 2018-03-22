@@ -6,6 +6,7 @@ images
 .htaccess
 .htpasswd
 .idea/*
+.atom/
 
 # Folder config file
 ####################
