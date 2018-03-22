@@ -1,10 +1,13 @@
-#LOLCensus
+# Added By Me
 ##########
 config.ini
 secure
 images
 .htaccess
 .htpasswd
+
+# IDE
+#####
 .idea/*
 .atom/
 
