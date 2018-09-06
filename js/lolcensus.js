@@ -30,7 +30,7 @@
  * @returns:        none
  */
  $( function() {
- 	var availableTags = [
+	var availableTags = [
  	"Aatrox",
  	"Ahri",
  	"Akali",
@@ -77,13 +77,15 @@
  	"Jax",
  	"Jayce",
  	"Jhin",
- 	"Jinx",
+	"Jinx",
+	"Kai'Sa",
  	"Kalista",
  	"Karma",
  	"Karthus",
  	"Kassadin",
  	"Katarina",
- 	"Kayle",
+	"Kayle",
+	"Kayn",
  	"Kennen",
  	"Kha'Zix",
  	"Kindred",
@@ -110,10 +112,12 @@
  	"Nocturne",
  	"Nunu",
  	"Olaf",
- 	"Orianna",
+	"Orianna",
+	"Ornn",
  	"Pantheon",
  	"Poppy",
- 	"Quinn",
+	"Quinn",
+	"Rakan",
  	"Rammus",
  	"Rek'Sai",
  	"Renekton",
@@ -155,7 +159,8 @@
  	"Vladimir",
  	"Volibear",
  	"Warwick",
- 	"Wukong",
+	"Wukong",
+	"Xayah",
  	"Xerath",
  	"XinZhao",
  	"Yasuo",
@@ -163,7 +168,8 @@
  	"Zac",
  	"Zed",
  	"Ziggs",
- 	"Zilean",
+	"Zilean",
+	"Zoe",
  	"Zyra"
  	];
  	$("#searchedName").autocomplete({

@@ -249,9 +249,9 @@ function loadChampionData(elem) {
 	divPanel.setAttribute("id", "information");
 	var br = document.createElement("br");
 	divPanel.appendChild(br);
-	var divInfo = document.createElement("div");
-	divInfo.setAttribute("class", "divInfo");
-	divPanel.appendChild(divInfo);
+	var info = document.createElement("div");
+	info.setAttribute("class", "info");
+	divPanel.appendChild(info);
 	divTabContent.appendChild(divPanel);
 	// panel: spells
 	divPanel = document.createElement("div");
@@ -262,15 +262,15 @@ function loadChampionData(elem) {
 	divPanel.appendChild(br);
 	// 1 passive per champion
 	var divPassive = document.createElement("div");
-	divPassive.setAttribute("class", "divSpell clearfix");
+	divPassive.setAttribute("class", "spell clearfix");
 	divPassive.setAttribute("id", "divPassive");
 	divPanel.appendChild(divPassive);
 	// 4 spells per champion, create 4 spans for images
 	for (var i = 0; i < 4; i++) {
-		var divSpell = document.createElement("div");
-		divSpell.setAttribute("class", "divSpell clearfix");
-		divSpell.setAttribute("id", "divSpell" + i);
-		divPanel.appendChild(divSpell);
+		var spell = document.createElement("div");
+		spell.setAttribute("class", "spell clearfix");
+		spell.setAttribute("id", "spell" + i);
+		divPanel.appendChild(spell);
 	}
 	divTabContent.appendChild(divPanel);
 	// panel: lore
@@ -281,7 +281,7 @@ function loadChampionData(elem) {
 	br = document.createElement("br");
 	divPanel.appendChild(br);
 	var spanLore = document.createElement("div");
-	spanLore.setAttribute("id", "divLore");
+	spanLore.setAttribute("id", "lore");
 	divPanel.appendChild(spanLore);
 	divTabContent.appendChild(divPanel);
 	// panel: tips and tricks
@@ -289,14 +289,14 @@ function loadChampionData(elem) {
 	divPanel.setAttribute("role", "tabpanel");
 	divPanel.setAttribute("class", " tab-pane fade");
 	divPanel.setAttribute("id", "tipstricks");
-	var divAllyTips = document.createElement("div");
-	divAllyTips.setAttribute("id", "divAllyTips");
-	divPanel.appendChild(divAllyTips);
+	var ally_tips = document.createElement("div");
+	ally_tips.setAttribute("id", "ally_tips");
+	divPanel.appendChild(ally_tips);
 	br = document.createElement("br");
 	divPanel.appendChild(br);
-	var divEnemyTips = document.createElement("div");
-	divEnemyTips.setAttribute("id", "divEnemyTips");
-	divPanel.appendChild(divEnemyTips);
+	var enemy_tips = document.createElement("div");
+	enemy_tips.setAttribute("id", "enemy_tips");
+	divPanel.appendChild(enemy_tips);
 	divTabContent.appendChild(divPanel);
 
 	$.ajax({
@@ -315,12 +315,12 @@ function loadChampionData(elem) {
 			// title
 			$('#championTitleHeader').html("'" + json.Title + "'");
 			// lore and quote
-			$('#divLore').html("<b>THE STORY OF " + championName.toUpperCase().fontsize(7) + "...</b> <br><br>" +
+			$('#lore').html("<b>THE STORY OF " + championName.toUpperCase().fontsize(7) + "...</b> <br><br>" +
 				json[4].Lore + "<br><br><br>" + "<span id=\"lore-quote\">" + json[4].Quote + "</span>" + "<br><br>");
 			// tips and tricks
-			$('#divAllyTips').html("<h3>ALLY TIPS:</h3> <ul class=\"square-bullets\"><li>" +
+			$('#ally_tips').html("<h3>ALLY TIPS:</h3> <ul class=\"square-bullets\"><li>" +
 				replaceWithBreak(json.AllyTips) + "</ul>");
-			$('#divEnemyTips').html("<h3>ENEMY TIPS:</h3> <ul class=\"square-bullets\"><li>" +
+			$('#enemy_tips').html("<h3>ENEMY TIPS:</h3> <ul class=\"square-bullets\"><li>" +
 				replaceWithBreak(json.EnemyTips) + "</ul>");
 			// champion info
 			var attackSpeed = 0.625 / (1 + parseFloat(json.AttackSpeedOffSet)); // attack speed calc from RiotAPI forum
@@ -351,7 +351,7 @@ function loadChampionData(elem) {
 			var firstTower = parseFloat(json[5].FirstTowerPercent);
 			var avgLevel = parseFloat(json[5].AvgLevel);
 			var minionsKilled = parseFloat(json[5].AvgMinionsKilled);
-			$('.divInfo').html(
+			$('.info').html(
 				"<div class=\"info-columns\" id=\"info-col-1\">" +
 				"<h3>BASIC INFORMATION</h3>" +
 				"<hr><br>" +
@@ -454,22 +454,22 @@ function loadChampionData(elem) {
 				"<br><br><br>" +
 				"<b>ATTRIBUTES</b>" +
 				"<br><br>" +
-				"<span class=\"spanAttributeBar\" id=\"spanAttackBar\" data-toggle=\"tooltip\" " +
+				"<span class=\"attr-bar\" id=\"spanAttackBar\" data-toggle=\"tooltip\" " +
 				"data-placement=\"top\" >" +
 				"<img src=\"images/sword.png\" width=\"27\" height=\"27\" /> " +
 				"<canvas id=\"attackBar\" width=\"200\" height=\"23\" />" +
 				"</span>" +
-				"<span class=\"spanAttributeBar\" id=\"spanDefenseBar\" data-toggle=\"tooltip\" " +
+				"<span class=\"attr-bar\" id=\"spanDefenseBar\" data-toggle=\"tooltip\" " +
 				"data-placement=\"top\" >" +
 				"<img src=\"images/shield.png\" width=\"27\" height=\"27\" /> " +
 				"<canvas id=\"defenseBar\" width=\"200\" height=\"23\" />" +
 				"</span>" +
-				"<span class=\"spanAttributeBar\" id=\"spanMagicBar\" data-toggle=\"tooltip\" " +
+				"<span class=\"attr-bar\" id=\"spanMagicBar\" data-toggle=\"tooltip\" " +
 				"data-placement=\"top\" >" +
 				"<img src=\"images/flame.png\" width=\"27\" height=\"27\" /> " +
 				"<canvas id=\"magicBar\" width=\"200\" height=\"23\" />" +
 				"</span>" +
-				"<span class=\"spanAttributeBar\" id=\"spanDifficultyBar\" data-toggle=\"tooltip\" " +
+				"<span class=\"attr-bar\" id=\"spanDifficultyBar\" data-toggle=\"tooltip\" " +
 				"data-placement=\"top\" >" +
 				"<img src=\"images/stairs.png\" width=\"27\" height=\"27\" /> " +
 				"<canvas id=\"difficultyBar\" width=\"200\" height=\"23\" />" +
@@ -498,16 +498,16 @@ function loadChampionData(elem) {
 			// kda graph
 			createKdaGraph(kills, deaths, assists);
 			// display passive info
-			var spellName = json.PassiveName;
-			var upperCaseSpellName = spellName.toUpperCase();
+			var spell_name = json.PassiveName;
+			var upperCasespell_name = spell_name.toUpperCase();
 			$('#divPassive').html(
-				"<div class=\"SpellImage\">" +
+				"<div class=\"spell-image\">" +
 				"<img src=\"http://ddragon.leagueoflegends.com/cdn/" + DATA_DRAGON +
 				"/img/passive/" + json.PassiveImageFull + "\" >" +
 				"</div>" +
-				"<div class=\"SpellInfo\">" +
-				"<b id=\"spellName\">" + upperCaseSpellName + "</b>" +
-				"<div id=\"SpellInfoRightSide\">" +
+				"<div class=\"spell-info\">" +
+				"<b id=\"spell_name\">" + upperCasespell_name + "</b>" +
+				"<div id=\"spell-info-right\">" +
 				"<b>PASSIVE ABILITY</b>" +
 				"</div>" +
 				"<br><br>" +
@@ -516,8 +516,8 @@ function loadChampionData(elem) {
 				"</div>");
 			// spell images and spell info
 			for (var i = 0; i < 4; i++) {
-				spellName = json[i].Name;
-				upperCaseSpellName = spellName.toUpperCase();
+				spell_name = json[i].Name;
+				upperCasespell_name = spell_name.toUpperCase();
 				var maxAmmo = "";
 				// ammo fix
 				if (json[i].MaxAmmo === "-1") {
@@ -577,14 +577,14 @@ function loadChampionData(elem) {
 					costType = json[i].CostType;
 				}
 				// display spell info
-				$('#divSpell' + i).html(
-					"<div class=\"SpellImage\">" +
+				$('#spell' + i).html(
+					"<div class=\"spell-image\">" +
 					"<img src=\"http://ddragon.leagueoflegends.com/cdn/" + DATA_DRAGON +
 					"/img/spell/" + json[i].ImageFull + "\" >" +
 					"</div>" +
-					"<div class=\"SpellInfo\">" +
-					"<b id=\"spellName\">" + upperCaseSpellName + "</b>" +
-					"<div id=\"SpellInfoRightSide\">" +
+					"<div class=\"spell-info\">" +
+					"<b id=\"spell_name\">" + upperCasespell_name + "</b>" +
+					"<div id=\"spell-info-right\">" +
 					"<b>HOTKEY:</b> " + json[i].HotKey +
 					"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
 					"<b>MAX RANK:</b> " + json[i].MaxRank +

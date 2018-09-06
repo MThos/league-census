@@ -309,11 +309,11 @@ table {
     border: 4px ridge #424242;
 }
 /* info */
-.divInfo {
+.info {
     display: flex;
     width: 100%;
 }
-.divInfo > div {
+.info > div {
     flex: 1;
     -webkit-flex: 1; /* Safari */
     -ms-flex: 1; /* IE */
@@ -336,14 +336,14 @@ table {
 #info-col-3 {
     padding: 0 20px 0 20px;
 }
-.spanAttributeBar {
+.attr-bar {
     display: inline-block;
     padding: 2px 0 2px 0;
 } /* --------- fix -------- */
-.spanAttributeBar > img {
+.attr-bar > img {
     float: left;
 } /* --------- fix -------- */
-.spanAttributeBar > canvas {
+.attr-bar > canvas {
     float: right;
 }
 #attackBar, #defenseBar, #magicBar, #difficultyBar {
@@ -392,15 +392,15 @@ table {
     vertical-align: middle;
 }
 /* lore */
-#divLore {
+#lore {
     border: 4px outset #424242;
     padding: 20px 15px 15px 15px;
     margin: 5px 0 20px 0;
 }
-#divLore:hover {
+#lore:hover {
     background-color: #000;
 }
-#divLore > b {
+#lore > b {
     color: #fbc02d;
     font-size: 20px;
 }
@@ -410,66 +410,66 @@ table {
     font-weight: bold;
 }
 /* tips and tricks */
-#divAllyTips {
+#ally-tips {
     border: 4px outset #424242;
     padding: 20px 15px 25px 15px;
     margin: 20px 0 0 0;
 }
-#divEnemyTips {
+#enemy-tips {
     border: 4px outset #424242;
     padding: 20px 15px 25px 15px;
     margin: 0 0 20px 0;
 }
-#divAllyTips:hover {
+#ally-tips:hover {
     background-color: #000;
 }
-#divEnemyTips:hover {
+#enemy-tips:hover {
     background-color: #000;
 }
-#divAllyTips > h3 {
+#ally-tips > h3 {
     color: #009933;
 }
-#divEnemyTips > h3 {
+#enemy-tips > h3 {
     color: #cc2900;
 }
 .square-bullets {
     list-style-type: square;
 }
 /* spells */
-.divSpell {
+.spell {
     border: 4px outset #424242;
     padding: 30px 15px 35px 15px;
     margin: 0 0 20px 0;
 }
-.divSpell:hover {
+.spell:hover {
     background-color: #000;
 }
-.SpellImage > img {
+.spell-image {
+    float: left;
+}
+.spell-image > img {
+    display: block;
+}
+.spell-image > img {
     border: 4px ridge #1c1c1c;
 }
-.SpellImage > img:hover {
+.spell-image > img:hover {
     -webkit-filter: brightness(120%);
     filter: brightness(120%);
 }
-.SpellInfo {
+.spell-info {
     margin: 0 0 0 100px;
 }
-.SpellInfo > b {
+.spell-info > b {
     color: #fbc02d;
 }
-.SpellImage {
-    float: left;
-}
-.SpellImage > img {
-    display: block;
-}
-#spellName {
+#spell-name {
     font-size: 24px;
 }
-#SpellInfoRightSide {
+#spell-info-right {
     float: right;
 }
-#SpellInfoRightSide > b {
+#spell-info-right > b {
     color: #fbc02d;
 }
 /* back to top button */
